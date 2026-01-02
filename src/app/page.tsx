@@ -34,7 +34,7 @@ export default function Home() {
     },
     {
       ...baseTile,
-      title: "GoodNotes",
+      title: "amazon",
       subtitle: "Tag & Reminders",
       className: "",
       date: "2022",
@@ -42,7 +42,7 @@ export default function Home() {
     {
       ...baseTile,
       title: "AuxAI",
-      subtitle: "Concept Work",
+      subtitle: "Projects",
       className: "",
       date: "2024",
     },
@@ -102,14 +102,14 @@ export default function Home() {
           <article
             key={tile.title}
             className={[
-              "group flex h-full w-full flex-col transition-transform duration-200 ease-out hover:-translate-y-2",
+              "group flex h-full w-full flex-col",
               tile.className,
             ]
               .filter(Boolean)
               .join(" ")}
           >
             <div className="flex h-full flex-col">
-              <div className="rounded-sm bg-gray-50 p-6 shadow-[0_18px_24px_-20px_rgba(15,23,42,0.35)] transition-shadow duration-200 ease-out group-hover:shadow-[0_28px_40px_-26px_rgba(15,23,42,0.4)]">
+              <div className="rounded-sm bg-gray-50 p-6 shadow-[0_8px_16px_-14px_rgba(15,23,42,0.22)] transition-[box-shadow,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-[0_12px_20px_-16px_rgba(15,23,42,0.26)]">
                 <div
                   className={[
                     "w-full rounded-[3px] bg-gray-50",

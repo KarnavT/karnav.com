@@ -12,7 +12,7 @@ const navItems = [
 const sidebarSections = [
   {
     title: "Concept Work",
-    items: ["Apple", "GoodNotes"],
+  items: ["Apple", "amazon"],
   },
   {
     title: "Projects",
@@ -34,7 +34,7 @@ export default function Sidebar() {
           <Link href="/" className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-2xl font-bold text-gray-900">કર્ણવ
           </Link>
           <nav aria-label="Primary">
-            <ul className="space-y-2 text-lg font-semibold text-gray-700">
+            <ul className="space-y-2 text-lg font-medium text-gray-600">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -42,7 +42,7 @@ export default function Sidebar() {
                     <Link
                       className={[
                         "block transition-colors duration-200",
-                        isActive ? "text-gray-900" : "text-gray-600",
+                        isActive ? "text-gray-800" : "text-gray-500",
                       ].join(" ")}
                       href={item.href}
                     >
@@ -60,10 +60,10 @@ export default function Sidebar() {
             key={section.title}
             className="space-y-3 border-t border-gray-200 pt-6 -mx-8 px-8"
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
+            <p className="text-xs uppercase tracking-[0.2em] text-gray-500">
               {section.title}
             </p>
-            <ul className="space-y-1 text-sm text-gray-700">
+            <ul className="space-y-1 text-sm font-medium text-gray-600">
               {section.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
