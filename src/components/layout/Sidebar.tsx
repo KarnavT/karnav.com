@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const navItems = [
   { label: "About", href: "/" },
@@ -20,10 +21,17 @@ export default function Sidebar() {
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <li key={item.href}>
+              <li key={item.href} className="relative">
+                {isActive ? (
+                  <motion.span
+                    layoutId="active-nav-indicator"
+                    className="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded-full bg-gray-300"
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  />
+                ) : null}
                 <Link
                   className={[
-                    "block rounded px-2 py-1 text-sm transition-colors",
+                    "block cursor-pointer rounded px-2 py-1 pl-4 text-sm transition-colors duration-200",
                     isActive
                       ? "bg-gray-100 text-gray-900"
                       : "text-gray-600 hover:bg-gray-100/70 hover:text-gray-900",
