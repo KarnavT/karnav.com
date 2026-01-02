@@ -4,8 +4,7 @@ export default function AboutPage() {
       <p className="absolute ml-3 left-10 top-[5px] text-[0.7rem] uppercase tracking-[0.35em] text-gray-600 sm:left-12 lg:left-[9.5rem]">
         Let the fog settle...
       </p>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(148,163,184,0.16),transparent_55%),radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.12),transparent_50%),radial-gradient(circle_at_35%_80%,rgba(226,232,240,0.45),transparent_60%)] blur-2xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.92),rgba(255,255,255,0.65),rgba(255,255,255,0.9))]" />
+      <div className="pointer-events-none absolute inset-0" />
 
       <div className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
         <div className="space-y-6 lg:pl-28">
@@ -24,23 +23,23 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="relative h-[360px] w-full -ml-6">
+        <div className="relative mt-10 grid grid-cols-2 gap-4 lg:mt-0 2xl:h-[360px] 2xl:w-full 2xl:-ml-6 2xl:block">
           <div
-            className="absolute left-[-40px] top-28 h-60 w-48 rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)]"
+            className="relative h-40 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-44 2xl:absolute 2xl:left-[-40px] 2xl:top-[72px] 2xl:h-72 2xl:w-48"
             style={{ backgroundImage: 'url("/about/Waterfall.jpg")' }}
           />
           <div
-            className="absolute left-44 top-4 h-80 w-56 rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_28px_40px_-30px_rgba(15,23,42,0.4)]"
+            className="relative h-40 w-full rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_28px_40px_-30px_rgba(15,23,42,0.4)] sm:h-44 2xl:absolute 2xl:left-42 2xl:top-[-30px] 2xl:h-[20rem] 2xl:w-56"
             style={{
               backgroundImage: 'url("/about/Balcony holding glasses.jpg")',
             }}
           />
           <div
-            className="absolute right-0 top-0 h-36 w-36 rounded-sm bg-gray-100/65 bg-cover bg-center shadow-[0_22px_30px_-26px_rgba(15,23,42,0.32)]"
+            className="relative h-40 w-full rounded-sm bg-gray-100/65 bg-cover bg-center shadow-[0_22px_30px_-26px_rgba(15,23,42,0.32)] sm:h-44 2xl:absolute 2xl:right-[-5px] 2xl:top-[-20px] 2xl:h-40 2xl:w-50"
             style={{ backgroundImage: 'url("/about/Mount Teton.jpg")' }}
           />
           <div
-            className="absolute right-0 top-40 h-44 w-40 rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_24px_32px_-28px_rgba(15,23,42,0.34)]"
+            className="relative h-40 w-full rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_24px_32px_-28px_rgba(15,23,42,0.34)] sm:h-44 2xl:absolute 2xl:right-[-5px] 2xl:top-40 2xl:h-51 2xl:w-50"
             style={{ backgroundImage: 'url("/about/Epcot Boat.jpg")' }}
           />
         </div>
