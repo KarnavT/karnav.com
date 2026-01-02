@@ -1,146 +1,60 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 
-import Reveal from "../components/motion/Reveal";
-import QuickStatCard from "../components/about/QuickStatCard";
-import TimelineItem from "../components/about/TimelineItem";
-import Section from "../components/ui/Section";
-import Toast from "../components/ui/Toast";
+const formatDateTime = (date: Date) => {
+  const weekday = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+  }).format(date);
+  const monthDay = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+  }).format(date);
+  const time = new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(date);
+
+  return `${weekday}, ${monthDay} ${time}`;
+};
 
 export default function Home() {
-  const email = "karnavnt@gmail.com";
-  const [showToast, setShowToast] = useState(false);
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
-    if (!showToast) {
-      return;
-    }
-
-    const timeout = setTimeout(() => setShowToast(false), 2000);
-    return () => clearTimeout(timeout);
-  }, [showToast]);
-
-  const handleCopyEmail = async () => {
-    let didCopy = false;
-
-    try {
-      if (navigator?.clipboard?.writeText) {
-        await navigator.clipboard.writeText(email);
-        didCopy = true;
-      }
-    } catch {
-      didCopy = false;
-    }
-
-    if (!didCopy) {
-      const textarea = document.createElement("textarea");
-      textarea.value = email;
-      textarea.setAttribute("readonly", "");
-      textarea.style.position = "absolute";
-      textarea.style.left = "-9999px";
-      document.body.appendChild(textarea);
-      textarea.select();
-
-      try {
-        didCopy = document.execCommand("copy");
-      } catch {
-        didCopy = false;
-      } finally {
-        document.body.removeChild(textarea);
-      }
-    }
-
-    if (didCopy) {
-      setShowToast(true);
-    }
-  };
-
-  const quickStats = [
-    { label: "Location", value: "Atlanta, GA" },
-    { label: "Focus", value: "AI • Computer Networking • Full-Stack" },
-    { label: "Current", value: "Internship + building projects" },
-    { label: "Tools", value: "TypeScript, React/Next.js, Python, Java, SQL" },
-  ];
-
-  const timelineItems = [
-    {
-      title: "Georgia Tech",
-      role: "B.S. Computer Science (AI & Computer Networking)",
-      detail: "Deepening foundations in systems, data, and product engineering.",
-      date: "2022 — Present",
-    },
-    {
-      title: "Internship",
-      role: "Software Engineering Intern",
-      detail: "Shipping production features with a focus on reliability and UX.",
-      date: "2024 — Present",
-    },
-    {
-      title: "Projects",
-      role: "Building portfolio projects (AI + full-stack)",
-      detail: "Designing and delivering end-to-end products with polish.",
-      date: "Ongoing",
-    },
-  ];
+    const interval = setInterval(() => setNow(new Date()), 1000 * 30);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="mx-auto w-full max-w-4xl space-y-16">
-      <Reveal delay={0.02}>
-        <section className="space-y-6">
-          <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
-              About
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Karnav T
-            </h1>
-            <p className="text-base font-medium text-gray-700">
-              Computer Science student @ Georgia Tech
-            </p>
-            <p className="text-base font-medium text-gray-600">
-              Building full-stack products with a focus on AI + networking
-            </p>
-          </div>
-          <p className="max-w-2xl text-sm font-medium text-gray-700">
-            Currently in an internship, I build polished products and focus on
-            designing systems end-to-end, from interface decisions to the
-            underlying architecture.
-          </p>
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-50"
-            >
-              Copy email
-            </button>
-            <span className="text-xs text-gray-400">{email}</span>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delay={0.04}>
-        <Section title="Highlights" className="space-y-6">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {quickStats.map((stat) => (
-              <QuickStatCard key={stat.label} {...stat} />
-            ))}
-          </div>
-        </Section>
-      </Reveal>
-
-      <Section title="Timeline" className="space-y-6">
-        <div className="space-y-8 border-l border-gray-200">
-          {timelineItems.map((item, index) => (
-            <Reveal key={item.title} delay={0.02 * (index + 1)}>
-              <TimelineItem {...item} />
-            </Reveal>
-          ))}
+    <div className="w-full space-y-6 px-6 pb-16 pt-10 sm:px-10">
+      <header className="flex flex-col gap-2 text-lg font-medium text-transparent sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
+            Hello there!
+          </span>
         </div>
-      </Section>
+        <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
+          {formatDateTime(now)}
+        </span>
+      </header>
 
-      <Toast message="Copied" isVisible={showToast} />
+      <section className="-ml-1 space-y-8">
+        <p className="text-3xl font-semibold leading-tight tracking-tight text-transparent sm:text-[2.5rem] sm:leading-[1.3]">
+          <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
+            Karnav is a software engineer focused on building intelligent, high performance systems that feel 
+            intuitive and scalable. He’s worked across full-stack and AI driven products, from productivity 
+            platforms used by millions to real-time control systems. Currently, he studies computer science at 
+            Georgia Tech and builds software at the intersection of AI, systems, and user experience.
+          </span>
+        </p>
+      </section>
+
+      <div className="border-t border-gray-100 pt-6">
+        <p className="text-xs uppercase tracking-[0.4em] text-gray-300">
+          Craft
+        </p>
+      </div>
     </div>
   );
 }
