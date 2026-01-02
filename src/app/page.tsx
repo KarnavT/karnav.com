@@ -98,11 +98,11 @@ export default function Home() {
             <p className="text-base font-medium text-gray-700">
               Computer Science student @ Georgia Tech
             </p>
-            <p className="text-base text-gray-500">
+            <p className="text-base font-medium text-gray-600">
               Building full-stack products with a focus on AI + networking
             </p>
           </div>
-          <p className="max-w-2xl text-sm text-gray-600">
+          <p className="max-w-2xl text-sm font-medium text-gray-700">
             Currently in an internship, I build polished products and focus on
             designing systems end-to-end, from interface decisions to the
             underlying architecture.

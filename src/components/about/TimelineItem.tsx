@@ -18,10 +18,12 @@ export default function TimelineItem({
         aria-hidden
       />
       <div className="space-y-1">
-        <p className="text-xs uppercase tracking-wide text-gray-400">{date}</p>
+        <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
+          {date}
+        </p>
         <p className="text-sm font-semibold text-gray-900">{title}</p>
-        <p className="text-sm text-gray-600">{role}</p>
-        <p className="text-sm text-gray-500">{detail}</p>
+        <p className="text-sm font-medium text-gray-700">{role}</p>
+        <p className="text-sm font-medium text-gray-600">{detail}</p>
       </div>
     </div>
   );
