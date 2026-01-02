@@ -11,12 +11,12 @@ const navItems = [
 
 const sidebarSections = [
   {
-    title: "Human Interface",
+    title: "Concept Work",
     items: ["Apple", "GoodNotes"],
   },
   {
-    title: "Web Interface",
-    items: ["Berkeleytime", "Marqeta", "PropertyGuru", "Micro-Interactions"],
+    title: "Projects",
+    items: ["AuxAI", "NotiVet", "F1 Race Predictor"],
   },
   {
     title: "Contact",
@@ -74,4 +74,3 @@ export default function Sidebar() {
     </aside>
   );
 }
-

@@ -20,6 +20,47 @@ const formatDateTime = (date: Date) => {
 
 export default function Home() {
   const [now, setNow] = useState(() => new Date());
+  const baseTile = {
+    className: "",
+    mediaClass: "md:h-40",
+  };
+  const tiles = [
+    {
+      ...baseTile,
+      title: "Apple",
+      subtitle: "Notes",
+      className: "",
+      date: "2023",
+    },
+    {
+      ...baseTile,
+      title: "GoodNotes",
+      subtitle: "Tag & Reminders",
+      className: "",
+      date: "2022",
+    },
+    {
+      ...baseTile,
+      title: "AuxAI",
+      subtitle: "Concept Work",
+      className: "",
+      date: "2024",
+    },
+    {
+      ...baseTile,
+      title: "NotiVet",
+      subtitle: "Projects",
+      className: "",
+      date: "2024",
+    },
+    {
+      ...baseTile,
+      title: "F1 Machine Learning Predictor",
+      subtitle: "Projects",
+      className: "",
+      date: "2023",
+    },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => setNow(new Date()), 1000 * 30);
@@ -55,6 +96,48 @@ export default function Home() {
           Craft
         </p>
       </div>
+
+      <section className="grid gap-8 md:grid-cols-3">
+        {tiles.map((tile) => (
+          <article
+            key={tile.title}
+            className={[
+              "group flex h-full w-full flex-col transition-transform duration-200 ease-out hover:-translate-y-2",
+              tile.className,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            <div className="flex h-full flex-col">
+              <div className="rounded-sm bg-gray-50 p-6 shadow-[0_18px_24px_-20px_rgba(15,23,42,0.35)] transition-shadow duration-200 ease-out group-hover:shadow-[0_28px_40px_-26px_rgba(15,23,42,0.4)]">
+                <div
+                  className={[
+                    "w-full rounded-[3px] bg-gray-50",
+                    "h-24",
+                    tile.mediaClass ?? "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                />
+              </div>
+              <div className="flex items-start justify-between gap-4 bg-white px-1 pt-2 text-lg font-semibold text-gray-700 shadow-[0_-10px_20px_-20px_rgba(15,23,42,0.35)] transition-shadow duration-200 ease-out group-hover:shadow-[0_-16px_26px_-20px_rgba(15,23,42,0.4)]">
+                <div>
+                  <p className="text-lg font-semibold text-gray-700 drop-shadow-[0_1px_1px_rgba(15,23,42,0.08)]">
+                    {tile.title}
+                  </p>
+                  <p
+                    className="-mt-1 text-lg text-gray-400"
+                    style={{ fontWeight: 450 }}
+                  >
+                    {tile.subtitle}
+                  </p>
+                </div>
+                <p className="text-sm font-medium text-gray-300">{tile.date}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
     </div>
   );
 }
