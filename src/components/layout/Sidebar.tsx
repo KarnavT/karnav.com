@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "About", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Ideas", href: "/ideas" },
   { label: "CV", href: "/resume" },
 ];
@@ -31,9 +31,8 @@ export default function Sidebar() {
     <aside className="fixed inset-y-0 left-0 w-60 border-r border-gray-200 bg-white px-8 py-10">
       <div className="space-y-10">
         <div className="space-y-6">
-          <div className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-2xl font-bold text-gray-900">
-            કર્ણવ
-          </div>
+          <Link href="/" className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-2xl font-bold text-gray-900">કર્ણવ
+          </Link>
           <nav aria-label="Primary">
             <ul className="space-y-2 text-lg font-semibold text-gray-700">
               {navItems.map((item) => {
@@ -75,3 +74,4 @@ export default function Sidebar() {
     </aside>
   );
 }
+

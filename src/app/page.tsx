@@ -42,10 +42,10 @@ export default function Home() {
       <section className="-ml-1 space-y-8">
         <p className="text-3xl font-semibold leading-tight tracking-tight text-transparent sm:text-[2.5rem] sm:leading-[1.3]">
           <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
-            Karnav is a software engineer focused on building intelligent, high performance systems that feel 
-            intuitive and scalable. He’s worked across full-stack and AI driven products, from productivity 
-            platforms used by millions to real-time control systems. Currently, he studies computer science at 
-            Georgia Tech and builds software at the intersection of AI, systems, and user experience.
+              Karnav is a software engineer building intelligent, high-performance systems that feel intuitive 
+              and scalable. He’s worked across full-stack and AI-driven products, from platforms used by millions 
+              to real-time systems. He studies computer science at Georgia Tech and builds software at the 
+              intersection of AI, systems, and user experience.
           </span>
         </p>
       </section>
