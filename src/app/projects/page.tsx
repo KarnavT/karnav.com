@@ -1,6 +1,7 @@
+import Reveal from "../../components/motion/Reveal";
+import ProjectCard from "../../components/projects/ProjectCard";
 import PageHeader from "../../components/ui/PageHeader";
 import Section from "../../components/ui/Section";
-import ProjectCard from "../../components/projects/ProjectCard";
 
 const projects = [
   {
@@ -32,17 +33,21 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="mx-auto w-full max-w-4xl space-y-14">
-      <PageHeader
-        title="Projects"
-        subtitle="Selected work and ongoing explorations."
-      />
-      <Section title="Projects">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </div>
-      </Section>
+      <Reveal delay={0.02}>
+        <PageHeader
+          title="Projects"
+          subtitle="Selected work and ongoing explorations."
+        />
+      </Reveal>
+      <Reveal delay={0.04}>
+        <Section title="Projects">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {projects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+        </Section>
+      </Reveal>
     </div>
   );
 }

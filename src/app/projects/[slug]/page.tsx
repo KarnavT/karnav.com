@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 
+import Reveal from "../../../components/motion/Reveal";
 import Section from "../../../components/ui/Section";
 
 const projects = [
@@ -82,43 +83,35 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </Link>
       </motion.div>
 
-      <motion.header
-        layoutId={`project-card-${project.slug}`}
-        className="space-y-3 rounded-lg bg-gray-100/50 p-6"
-      >
-        <h1 className="text-3xl font-semibold tracking-tight text-gray-900">
-          {project.title}
-        </h1>
-        <p className="text-base text-gray-500">{project.description}</p>
-      </motion.header>
+      <Reveal delay={0.02}>
+        <motion.header
+          layoutId={`project-card-${project.slug}`}
+          className="space-y-3 rounded-lg bg-gray-100/50 p-6"
+        >
+          <h1 className="text-3xl font-semibold tracking-tight text-gray-900">
+            {project.title}
+          </h1>
+          <p className="text-base text-gray-500">{project.description}</p>
+        </motion.header>
+      </Reveal>
 
-      <motion.div
-        initial={
-          shouldReduceMotion
-            ? false
-            : {
-                opacity: 0,
-                y: 8,
-              }
-        }
-        animate={{ opacity: 1, y: 0 }}
-        transition={
-          shouldReduceMotion
-            ? { duration: 0 }
-            : { duration: 0.3, ease: "easeOut" }
-        }
-        className="space-y-10"
-      >
-        <Section title="Overview">
-          <p className="text-sm text-gray-500">{project.overview}</p>
-        </Section>
-        <Section title="Technical Approach">
-          <p className="text-sm text-gray-500">{project.approach}</p>
-        </Section>
-        <Section title="Challenges">
-          <p className="text-sm text-gray-500">{project.challenges}</p>
-        </Section>
-      </motion.div>
+      <div className="space-y-10">
+        <Reveal delay={0.04}>
+          <Section title="Overview">
+            <p className="text-sm text-gray-500">{project.overview}</p>
+          </Section>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <Section title="Technical Approach">
+            <p className="text-sm text-gray-500">{project.approach}</p>
+          </Section>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <Section title="Challenges">
+            <p className="text-sm text-gray-500">{project.challenges}</p>
+          </Section>
+        </Reveal>
+      </div>
     </div>
   );
 }
