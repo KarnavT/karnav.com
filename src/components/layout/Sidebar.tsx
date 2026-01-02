@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Ideas", href: "/ideas" },
-  { label: "CV", href: "/resume" },
+  { label: "Resume", href: "/resume" },
 ];
 
 const sidebarSections = [
   {
     title: "Concept Work",
-  items: ["Apple", "amazon"],
+    items: ["Apple", "amazon"],
   },
   {
     title: "Projects",
@@ -20,7 +20,11 @@ const sidebarSections = [
   },
   {
     title: "Contact",
-    items: ["Mail", "Twitter", "LinkedIn", "Read.cv"],
+    items: [
+      { label: "Mail", href: "mailto:karnavnt@gmail.com" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/karnav-trivedi/" },
+      { label: "Resume", href: "/resume" },
+    ],
   },
 ];
 
@@ -64,9 +68,31 @@ export default function Sidebar() {
               {section.title}
             </p>
             <ul className="space-y-1 text-sm font-medium text-gray-600">
-              {section.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
+              {section.items.map((item) => {
+                if (typeof item === "string") {
+                  return <li key={item}>{item}</li>;
+                }
+
+                return (
+                  <li key={item.label}>
+                    <Link
+                      className="group relative inline-flex text-gray-600"
+                      href={item.href}
+                      rel="noreferrer"
+                      target={
+                        item.href.startsWith("http") || item.href.endsWith(".pdf")
+                          ? "_blank"
+                          : undefined
+                      }
+                    >
+                      <span className="relative">
+                        {item.label}
+                        <span className="absolute left-0 top-full h-px w-full origin-left scale-x-0 bg-gray-900 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
