@@ -1,5 +1,29 @@
 import PageHeader from "../../components/ui/PageHeader";
 import Section from "../../components/ui/Section";
+import ProjectCard from "../../components/projects/ProjectCard";
+
+const projects = [
+  {
+    title: "Signal Notes",
+    description: "A minimal research workspace with flexible capture flows.",
+    tags: ["Next.js", "TypeScript", "UI Systems"],
+  },
+  {
+    title: "Atlas Studio",
+    description: "A concept workspace for spatial planning and project mapping.",
+    tags: ["React", "Motion", "Design Systems"],
+  },
+  {
+    title: "Quiet Stack",
+    description: "A lightweight toolchain for focused, distraction-free builds.",
+    tags: ["Tailwind", "Productivity", "Prototyping"],
+  },
+  {
+    title: "Field Log",
+    description: "A modular logbook for ideas, experiments, and iterations.",
+    tags: ["App Router", "TypeScript", "Research"],
+  },
+];
 
 export default function ProjectsPage() {
   return (
@@ -8,20 +32,12 @@ export default function ProjectsPage() {
         title="Projects"
         subtitle="Selected work and ongoing explorations."
       />
-      <Section title="Overview">
-        <p className="text-sm text-gray-500">
-          Placeholder copy goes here to indicate scope and structure.
-        </p>
-      </Section>
-      <Section title="Case Studies">
-        <p className="text-sm text-gray-500">
-          Placeholder copy goes here for future project summaries.
-        </p>
-      </Section>
-      <Section title="Experiments">
-        <p className="text-sm text-gray-500">
-          Placeholder copy goes here for smaller explorations.
-        </p>
+      <Section title="Projects">
+        <div className="grid gap-4 sm:grid-cols-2">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </div>
       </Section>
     </div>
   );
