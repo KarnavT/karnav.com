@@ -38,7 +38,7 @@ export default function AboutPage() {
           />
           <div
             className="relative h-40 w-full rounded-sm bg-gray-100/65 bg-cover bg-center shadow-[0_22px_30px_-26px_rgba(15,23,42,0.32)] sm:h-44 2xl:absolute 2xl:right-[-5px] 2xl:top-[-20px] 2xl:h-40 2xl:w-50"
-            style={{ backgroundImage: 'url("/about/Mount Teton.jpg")' }}
+            style={{ backgroundImage: 'url("/about/Modern Architecture.jpg")' }}
           />
           <div
             className="relative h-40 w-full rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_24px_32px_-28px_rgba(15,23,42,0.34)] sm:h-44 2xl:absolute 2xl:right-[-5px] 2xl:top-40 2xl:h-51 2xl:w-50"
@@ -54,11 +54,11 @@ export default function AboutPage() {
               className="relative mt-1 aspect-[4/3] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] lg:mt-12"
             >
               <Image
-                src="/about/F1 Drawing.JPG"
-                alt="F1 car drawing"
+                src="/about/Mount Teton.jpg"
+                alt="Mount Teton landscape"
                 fill
                 sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 100vw"
-                className="object-contain"
+                className="object-cover"
               />
             </div>
           </div>
