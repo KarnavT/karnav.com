@@ -1,14 +1,39 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function AboutPage() {
+  const shouldReduceMotion = useReducedMotion();
+  const heroDuration = 1.1;
+  const restDelay = heroDuration * 0.3;
+  const restMotion = {
+    initial: shouldReduceMotion ? false : { opacity: 0, y: 14 },
+    animate: { opacity: 1, y: 0 },
+    transition: shouldReduceMotion
+      ? { duration: 0 }
+      : { duration: heroDuration, ease: [0.22, 1, 0.36, 1], delay: restDelay },
+  };
+
   return (
     <div className="relative w-full overflow-hidden px-10 py-14 sm:px-12 sm:py-16">
-      <p className="absolute ml-3 left-10 top-[5px] text-[0.7rem] uppercase tracking-[0.35em] text-gray-600 sm:left-12 lg:left-[9.5rem]">
-        Let the fog settle...
-      </p>
-      <div className="pointer-events-none absolute inset-0" />
+      <motion.div {...restMotion}>
+        <p className="absolute ml-3 left-10 top-[5px] text-[0.7rem] uppercase tracking-[0.35em] text-gray-600 sm:left-12 lg:left-[9.5rem]">
+          Let the fog settle...
+        </p>
+        <div className="pointer-events-none absolute inset-0" />
+      </motion.div>
 
-      <div className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+      <motion.div
+        className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start"
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={
+          shouldReduceMotion
+            ? { duration: 0 }
+            : { duration: heroDuration, ease: [0.22, 1, 0.36, 1] }
+        }
+      >
         <div className="space-y-6 lg:pl-28">
           <div className="inline-block space-y-4">
             <h1 className="text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-9xl">
@@ -45,177 +70,179 @@ export default function AboutPage() {
             style={{ backgroundImage: 'url("/about/Epcot Boat.jpg")' }}
           />
         </div>
-      </div>
+      </motion.div>
 
-      <section className="mt-16 grid gap-10 sm:mt-24 lg:mt-[150px] lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
-        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:pl-28 lg:items-stretch">
-          <div className="flex items-start">
-            <div
-              className="relative mt-1 aspect-[4/3] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] lg:mt-12"
-            >
-              <Image
-                src="/about/Mount Teton.jpg"
-                alt="Mount Teton landscape"
-                fill
-                sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 100vw"
-                className="object-cover"
-              />
+      <motion.div {...restMotion}>
+        <section className="mt-16 grid gap-10 sm:mt-24 lg:mt-[150px] lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:pl-28 lg:items-stretch">
+            <div className="flex items-start">
+              <div
+                className="relative mt-1 aspect-[4/3] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] lg:mt-12"
+              >
+                <Image
+                  src="/about/Mount Teton.jpg"
+                  alt="Mount Teton landscape"
+                  fill
+                  sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col lg:mt-[6rem] lg:mb-[3rem]">
+              <div
+                className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)] sm:aspect-[4/5] lg:-ml-4 lg:h-full lg:aspect-auto"
+              >
+                <Image
+                  src="/about/Balcony looking at camera.jpg"
+                  alt="Balcony portrait looking at camera"
+                  fill
+                  sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
-          <div className="flex flex-col lg:mt-[6rem] lg:mb-[3rem]">
-            <div
-              className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)] sm:aspect-[4/5] lg:-ml-4 lg:h-full lg:aspect-auto"
-            >
-              <Image
-                src="/about/Balcony looking at camera.jpg"
-                alt="Balcony portrait looking at camera"
-                fill
-                sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
 
-        <div className="space-y-6 lg:max-w-[26rem] lg:justify-self-start">
-          <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
-            Info
-          </p>
-          <div className="space-y-5 text-sm leading-[1.5rem] text-gray-500">
-            <p>
-              I'm an undergraduate student at the Georgia Institute of Technology studying Computer Science
-              and graduating in December 2027.
-            </p>
-            <p>
-              For a long time, I've been building software systems that people rely on every day, always 
-              striving to create products that feel intuitive, reliable, and human-centered. Throughout 
-              this journey, I've been deeply curious about how people think, behave, and make decisions 
-              when using software — there are many layers to human–computer interaction, and even more 
-              opportunities to design systems that better align with real human needs.
-            </p>
-            <p>
-              During my freshman year, I gravitated toward designing for people 
-              in computing spaces because of the scale and speed at which software can impact lives. 
-              While technology and systems continuously evolve, at the heart of strong engineering and design 
-              is the same principle — creating tools that improve people's lives through clarity, functionality, 
-              and thoughtful execution. My background has given me a systems-oriented way of thinking, 
-              allowing me to design and build interfaces and platforms that are powerful under the hood while 
-              remaining approachable and friendly for the people who use them.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-16 sm:mt-24 lg:pl-28">
-        <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
-          <hr className="border-t border-gray-100" />
-        <div className="pt-6 lg:grid lg:grid-cols-[1.1fr_1fr] lg:gap-10">
-          <div>
+          <div className="space-y-6 lg:max-w-[26rem] lg:justify-self-start">
             <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
-              Education
+              Info
             </p>
-
-            <div className="mt-6 space-y-2">
-              <h3 className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
-                Georgia Institute of Technology
-              </h3>
-              <p className="text-2xl font-normal text-gray-500 lg:text-xl xl:text-2xl">
-                College of Computing
+            <div className="space-y-5 text-sm leading-[1.5rem] text-gray-500">
+              <p>
+                I'm an undergraduate student at the Georgia Institute of Technology studying Computer Science
+                and graduating in December 2027.
               </p>
-              <p className="text-sm font-sans text-gray-500 lg:text-xs xl:text-sm">
-                2025 - 2027
+              <p>
+                For a long time, I've been building software systems that people rely on every day, always 
+                striving to create products that feel intuitive, reliable, and human-centered. Throughout 
+                this journey, I've been deeply curious about how people think, behave, and make decisions 
+                when using software — there are many layers to human–computer interaction, and even more 
+                opportunities to design systems that better align with real human needs.
               </p>
-              <p className="text-sm text-gray-500 pt-3 lg:text-xs xl:text-sm">
-                Bachelor of Science in Computer Science<br />
-                Concentrations: Artificial Intelligence and Computer Networks
-              </p>
-            </div>
-          </div>
-
-          <div className="lg:ml-[10px] lg:justify-self-stretch">
-            <div className="relative mt-6">
-              <div
-                className="relative h-48 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-56"
-                style={{ backgroundImage: 'url("/about/GT Spring Background.jpg")' }}
-              />
-              <p className="mt-3 text-xs text-gray-500">
-                Georgia Tech campus during the spring
+              <p>
+                During my freshman year, I gravitated toward designing for people 
+                in computing spaces because of the scale and speed at which software can impact lives. 
+                While technology and systems continuously evolve, at the heart of strong engineering and design 
+                is the same principle — creating tools that improve people's lives through clarity, functionality, 
+                and thoughtful execution. My background has given me a systems-oriented way of thinking, 
+                allowing me to design and build interfaces and platforms that are powerful under the hood while 
+                remaining approachable and friendly for the people who use them.
               </p>
             </div>
           </div>
-        </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mt-20 sm:mt-24 lg:pl-28">
-        <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
-          <hr className="border-t border-gray-100" />
-          <div className="pt-6 space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
-              Engineering Foundations
-            </p>
-            <div className="grid gap-8 lg:grid-cols-2">
-              <div className="space-y-3 text-sm leading-[1.5rem] text-gray-500">
-                <p className="font-semibold text-gray-700">Great Taste</p>
-                <p>
-                  I believe that great taste in software is developed through building and refining
-                  production code. Beyond individual features, understanding how software behaves
-                  over time—how it scales, performs, and adapts—has helped me develop a stronger
-                  intuition for what feels right. I’m not afraid of trying new approaches and
-                  consistently strive toward building clear, reliable, and well-crafted systems.
-                </p>
-              </div>
-              <div className="space-y-3 text-sm leading-[1.5rem] text-gray-500">
-                <p className="font-semibold text-gray-700">
-                  Technology with Intent
-                </p>
-                <p>
-                  The future of software is compelling to me as systems increasingly anticipate
-                  needs and integrate seamlessly into everyday workflows. As software becomes more
-                  intelligent and interconnected, I believe its role is to support people without
-                  adding friction or complexity. I’m curious about how we can build technology that
-                  is purposeful, dependable, and feels natural to use rather than demanding
-                  attention.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-32 sm:mt-40 lg:pl-28">
-        <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
-            <div className="space-y-6">
-              <p className="relative translate-y-15 text-xs uppercase tracking-[0.4em] text-gray-400">
-                Things I love to do
+        <section className="mt-16 sm:mt-24 lg:pl-28">
+          <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
+            <hr className="border-t border-gray-100" />
+          <div className="pt-6 lg:grid lg:grid-cols-[1.1fr_1fr] lg:gap-10">
+            <div>
+              <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
+                Education
               </p>
-              <div className="mt-20 space-y-1">
-                <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
-                  Traveling to new cities
+
+              <div className="mt-6 space-y-2">
+                <h3 className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  Georgia Institute of Technology
+                </h3>
+                <p className="text-2xl font-normal text-gray-500 lg:text-xl xl:text-2xl">
+                  College of Computing
                 </p>
-                <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
-                  Formula 1 Weekends
+                <p className="text-sm font-sans text-gray-500 lg:text-xs xl:text-sm">
+                  2025 - 2027
                 </p>
-                <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
-                  Designing and sketching ideas
+                <p className="text-sm text-gray-500 pt-3 lg:text-xs xl:text-sm">
+                  Bachelor of Science in Computer Science<br />
+                  Concentrations: Artificial Intelligence and Computer Networks
                 </p>
               </div>
             </div>
 
-            <div className="relative flex items-start justify-between gap-4 lg:gap-4">
-              <div
-                className="relative w-65 h-105 -translate-y-15 aspect-[3/4] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[4/5]"
-                style={{ backgroundImage: 'url("/about/Donald Duck Drawing.jpg")'}}
-              />
-              <div
-                className="relative w-65 h-90 translate-y-[30px] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
-                style={{ backgroundImage: 'url("/about/F1.jpg")' }}
-              />
+            <div className="lg:ml-[10px] lg:justify-self-stretch">
+              <div className="relative mt-6">
+                <div
+                  className="relative h-48 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-56"
+                  style={{ backgroundImage: 'url("/about/GT Spring Background.jpg")' }}
+                />
+                <p className="mt-3 text-xs text-gray-500">
+                  Georgia Tech campus during the spring
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        <section className="mt-20 sm:mt-24 lg:pl-28">
+          <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
+            <hr className="border-t border-gray-100" />
+            <div className="pt-6 space-y-6">
+              <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
+                Engineering Foundations
+              </p>
+              <div className="grid gap-8 lg:grid-cols-2">
+                <div className="space-y-3 text-sm leading-[1.5rem] text-gray-500">
+                  <p className="font-semibold text-gray-700">Great Taste</p>
+                  <p>
+                    I believe that great taste in software is developed through building and refining
+                    production code. Beyond individual features, understanding how software behaves
+                    over time—how it scales, performs, and adapts—has helped me develop a stronger
+                    intuition for what feels right. I’m not afraid of trying new approaches and
+                    consistently strive toward building clear, reliable, and well-crafted systems.
+                  </p>
+                </div>
+                <div className="space-y-3 text-sm leading-[1.5rem] text-gray-500">
+                  <p className="font-semibold text-gray-700">
+                    Technology with Intent
+                  </p>
+                  <p>
+                    The future of software is compelling to me as systems increasingly anticipate
+                    needs and integrate seamlessly into everyday workflows. As software becomes more
+                    intelligent and interconnected, I believe its role is to support people without
+                    adding friction or complexity. I’m curious about how we can build technology that
+                    is purposeful, dependable, and feels natural to use rather than demanding
+                    attention.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-32 sm:mt-40 lg:pl-28">
+          <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+              <div className="space-y-6">
+                <p className="relative translate-y-15 text-xs uppercase tracking-[0.4em] text-gray-400">
+                  Things I love to do
+                </p>
+                <div className="mt-20 space-y-1">
+                  <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                    Traveling to new cities
+                  </p>
+                  <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                    Formula 1 Weekends
+                  </p>
+                  <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                    Designing and sketching ideas
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative flex items-start justify-between gap-4 lg:gap-4">
+                <div
+                  className="relative w-65 h-105 -translate-y-15 aspect-[3/4] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[4/5]"
+                  style={{ backgroundImage: 'url("/about/Donald Duck Drawing.jpg")'}}
+                />
+                <div
+                  className="relative w-65 h-90 translate-y-[30px] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
+                  style={{ backgroundImage: 'url("/about/F1.jpg")' }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </motion.div>
     </div>
   );
 }
