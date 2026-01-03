@@ -17,12 +17,6 @@ export default function AboutPage() {
 
   return (
     <div className="relative w-full overflow-hidden px-10 py-14 sm:px-12 sm:py-16">
-      <motion.div {...restMotion}>
-        <p className="absolute ml-3 left-10 top-[5px] text-[0.7rem] uppercase tracking-[0.35em] text-gray-600 sm:left-12 lg:left-[9.5rem]">
-          Let the fog settle...
-        </p>
-        <div className="pointer-events-none absolute inset-0" />
-      </motion.div>
 
       <motion.div
         className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start"
@@ -35,17 +29,19 @@ export default function AboutPage() {
         }
       >
         <div className="space-y-6 lg:pl-28">
-          <div className="inline-block space-y-4">
+          <div className="inline-block space-y-4 fog-mist">
             <h1 className="text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-9xl">
-              <span className="block bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
+              <span className="block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
                 Karnav
               </span>
-              <span className="ml-1 block bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
+              <span className="ml-1 block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
                 Trivedi
               </span>
             </h1>
-            <p className="ml-3 w-full text-3xl font-[450] text-gray-500 sm:ml-4 sm:text-4xl">
-              કર્ણવ ત્રિવેદી
+            <p className="ml-3 w-full text-3xl font-[450] text-transparent sm:ml-4 sm:text-4xl">
+              <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
+                કર્ણવ ત્રિવેદી
+              </span>
             </p>
           </div>
         </div>

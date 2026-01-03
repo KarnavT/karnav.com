@@ -19,10 +19,11 @@ const sidebarSections = [
     items: ["AuxAI", "NotiVet", "F1 Race Predictor"],
   },
   {
-    title: "Contact",
+    title: "Links",
     items: [
-      { label: "Mail", href: "mailto:karnavnt@gmail.com" },
+      { label: "Email", href: "mailto:karnavnt@gmail.com" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/karnav-trivedi/" },
+      { label: "GitHub", href: "https://github.com/KarnavT" },
       { label: "Resume", href: "/resume" },
     ],
   },
@@ -45,8 +46,8 @@ export default function Sidebar() {
                   <li key={item.href}>
                     <Link
                       className={[
-                        "block transition-colors duration-200",
-                        isActive ? "text-gray-800" : "text-gray-500",
+                        "block text-black transition-colors duration-200 hover:text-gray-500",
+                        isActive ? "text-black" : "text-black",
                       ].join(" ")}
                       href={item.href}
                     >
