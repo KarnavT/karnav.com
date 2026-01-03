@@ -83,13 +83,13 @@ export default function AboutPage() {
           </p>
           <div className="space-y-5 text-sm leading-[1.5rem] text-gray-500">
             <p>
-              I’m an undergraduate student at the Georgia Institute of Technology studying Computer Science
+              I'm an undergraduate student at the Georgia Institute of Technology studying Computer Science
               and graduating in December 2027.
             </p>
             <p>
-              For a long time, I’ve been building software systems that people rely on every day, always 
+              For a long time, I've been building software systems that people rely on every day, always 
               striving to create products that feel intuitive, reliable, and human-centered. Throughout 
-              this journey, I’ve been deeply curious about how people think, behave, and make decisions 
+              this journey, I've been deeply curious about how people think, behave, and make decisions 
               when using software — there are many layers to human–computer interaction, and even more 
               opportunities to design systems that better align with real human needs.
             </p>
@@ -97,12 +97,52 @@ export default function AboutPage() {
               During my freshman year, I gravitated toward designing for people 
               in computing spaces because of the scale and speed at which software can impact lives. 
               While technology and systems continuously evolve, at the heart of strong engineering and design 
-              is the same principle — creating tools that improve people’s lives through clarity, functionality, 
+              is the same principle — creating tools that improve people's lives through clarity, functionality, 
               and thoughtful execution. My background has given me a systems-oriented way of thinking, 
               allowing me to design and build interfaces and platforms that are powerful under the hood while 
               remaining approachable and friendly for the people who use them.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="mt-16 sm:mt-24 lg:pl-28 lg:ml-[50px]">
+        <div className="lg:max-w-[58rem]">
+          <hr className="border-t border-gray-100" />
+        <div className="pt-6 lg:grid lg:grid-cols-[1.1fr_1fr] lg:gap-10">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
+              Education
+            </p>
+
+            <div className="mt-6 space-y-2">
+              <h3 className="text-3xl font-medium tracking-tight text-gray-900">
+                Georgia Institute of Technology
+              </h3>
+              <p className="text-2xl font-normal text-gray-500">
+                College of Computing
+              </p>
+              <p className="text-sm font-sans text-gray-500">
+                2025 - 2027
+              </p>
+              <p className="text-sm text-gray-500 pt-3">
+                Bachelors of Science in Computer Science - Concentrations in Artificial Intelligence (AI) and Computer Networks
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:ml-[10px]">
+            <div className="relative mt-6">
+              <div
+                className="relative h-48 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-56"
+                style={{ backgroundImage: 'url("/about/GT Spring Background.jpg")' }}
+              />
+              <p className="mt-2 text-xs text-gray-400">
+                Georgia Tech campus during the spring
+              </p>
+            </div>
+          </div>
+        </div>
         </div>
       </section>
     </div>
