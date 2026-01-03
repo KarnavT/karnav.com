@@ -106,8 +106,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-16 sm:mt-24 lg:pl-28 lg:ml-[50px]">
-        <div className="lg:max-w-[58rem]">
+      <section className="mt-16 sm:mt-24 lg:pl-28">
+        <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
           <hr className="border-t border-gray-100" />
         <div className="pt-6 lg:grid lg:grid-cols-[1.1fr_1fr] lg:gap-10">
           <div>
@@ -116,28 +116,29 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-6 space-y-2">
-              <h3 className="text-3xl font-medium tracking-tight text-gray-900">
+              <h3 className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
                 Georgia Institute of Technology
               </h3>
-              <p className="text-2xl font-normal text-gray-500">
+              <p className="text-2xl font-normal text-gray-500 lg:text-xl xl:text-2xl">
                 College of Computing
               </p>
-              <p className="text-sm font-sans text-gray-500">
+              <p className="text-sm font-sans text-gray-500 lg:text-xs xl:text-sm">
                 2025 - 2027
               </p>
-              <p className="text-sm text-gray-500 pt-3">
-                Bachelors of Science in Computer Science - Concentrations in Artificial Intelligence (AI) and Computer Networks
+              <p className="text-sm text-gray-500 pt-3 lg:text-xs xl:text-sm">
+                Bachelor of Science in Computer Science<br />
+                Concentrations: Artificial Intelligence and Computer Networks
               </p>
             </div>
           </div>
 
-          <div className="lg:ml-[10px]">
+          <div className="lg:ml-[10px] lg:justify-self-stretch">
             <div className="relative mt-6">
               <div
                 className="relative h-48 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-56"
                 style={{ backgroundImage: 'url("/about/GT Spring Background.jpg")' }}
               />
-              <p className="mt-2 text-xs text-gray-400">
+              <p className="mt-3 text-xs text-gray-500">
                 Georgia Tech campus during the spring
               </p>
             </div>
