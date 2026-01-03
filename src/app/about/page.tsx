@@ -146,6 +146,76 @@ export default function AboutPage() {
         </div>
         </div>
       </section>
+
+      <section className="mt-20 sm:mt-24 lg:pl-28">
+        <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
+          <hr className="border-t border-gray-100" />
+          <div className="pt-6 space-y-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
+              Engineering Foundations
+            </p>
+            <div className="grid gap-8 lg:grid-cols-2">
+              <div className="space-y-3 text-sm leading-[1.5rem] text-gray-500">
+                <p className="font-semibold text-gray-700">Great Taste</p>
+                <p>
+                  I believe that great taste in software is developed through building and refining
+                  production code. Beyond individual features, understanding how software behaves
+                  over time—how it scales, performs, and adapts—has helped me develop a stronger
+                  intuition for what feels right. I’m not afraid of trying new approaches and
+                  consistently strive toward building clear, reliable, and well-crafted systems.
+                </p>
+              </div>
+              <div className="space-y-3 text-sm leading-[1.5rem] text-gray-500">
+                <p className="font-semibold text-gray-700">
+                  Technology with Intent
+                </p>
+                <p>
+                  The future of software is compelling to me as systems increasingly anticipate
+                  needs and integrate seamlessly into everyday workflows. As software becomes more
+                  intelligent and interconnected, I believe its role is to support people without
+                  adding friction or complexity. I’m curious about how we can build technology that
+                  is purposeful, dependable, and feels natural to use rather than demanding
+                  attention.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-32 sm:mt-40 lg:pl-28">
+        <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+            <div className="space-y-6">
+              <p className="relative translate-y-15 text-xs uppercase tracking-[0.4em] text-gray-400">
+                Things I love to do
+              </p>
+              <div className="mt-20 space-y-1">
+                <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  Traveling to new cities
+                </p>
+                <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  Formula 1 Weekends
+                </p>
+                <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  Designing and sketching ideas
+                </p>
+              </div>
+            </div>
+
+            <div className="relative flex items-start justify-between gap-4 lg:gap-4">
+              <div
+                className="relative w-65 h-105 -translate-y-15 aspect-[3/4] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[4/5]"
+                style={{ backgroundImage: 'url("/about/Donald Duck Drawing.jpg")'}}
+              />
+              <div
+                className="relative w-65 h-90 translate-y-[30px] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
+                style={{ backgroundImage: 'url("/about/F1.jpg")' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
