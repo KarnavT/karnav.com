@@ -29,7 +29,7 @@ export default function AboutPage() {
         }
       >
         <div className="space-y-6 lg:pl-28">
-          <div className="inline-block space-y-4 fog-mist">
+          <div className="inline-block space-y-4">
             <h1 className="text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-9xl">
               <span className="block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
                 Karnav
