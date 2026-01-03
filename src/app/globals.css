@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
+
+.scrollbar-stable {
+  scrollbar-gutter: stable;
+}

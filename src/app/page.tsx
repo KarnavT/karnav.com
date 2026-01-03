@@ -85,7 +85,7 @@ export default function Home() {
           <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
               Karnav is a software engineer building intelligent, high-performance systems that are intuitive and scalable. 
               His work spans full-stack, AI-driven products from platforms used by millions to real-time systems. 
-              At Georgia Tech, he studies computer science at the intersection of AI, systems, and user experience.
+              At Georgia Tech, he studies computer science at the intersection of AI, systems, and computer networks.
           </span>
         </p>
       </section>

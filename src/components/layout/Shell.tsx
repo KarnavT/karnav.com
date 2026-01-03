@@ -25,36 +25,16 @@ export default function Shell({ children }: ShellProps) {
     damping: 26,
     mass: 0.2,
   });
+  const motionStyle = shouldReduceMotion
+    ? undefined
+    : { willChange: "transform, opacity", translateZ: 0 };
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Sidebar />
-      <motion.main
-        key={pathname}
+      <main
         ref={mainRef}
-        className="relative ml-60 h-screen overflow-y-auto"
-        initial={
-          shouldReduceMotion
-            ? false
-            : {
-                opacity: 0,
-                y: 10,
-              }
-        }
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={
-          shouldReduceMotion
-            ? {
-                duration: 0,
-              }
-            : {
-                duration: 0.3,
-                ease: "easeOut",
-              }
-        }
+        className="relative ml-60 h-screen overflow-y-auto scrollbar-stable"
       >
         <div className="sticky top-0 z-20 h-0.5 w-full pointer-events-none">
           {shouldReduceMotion ? (
@@ -67,8 +47,36 @@ export default function Shell({ children }: ShellProps) {
             />
           )}
         </div>
-        <div className="px-10 py-12">{children}</div>
-      </motion.main>
+        <motion.div
+          key={pathname}
+          className="px-10 py-12"
+          style={motionStyle}
+          initial={
+            shouldReduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 10,
+                }
+          }
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={
+            shouldReduceMotion
+              ? {
+                  duration: 0,
+                }
+              : {
+                  duration: 0.3,
+                  ease: "easeOut",
+                }
+          }
+        >
+          {children}
+        </motion.div>
+      </main>
     </div>
   );
 }
