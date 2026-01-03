@@ -49,7 +49,7 @@ export default function Shell({ children }: ShellProps) {
         </div>
         <motion.div
           key={pathname}
-          className="px-10 py-12"
+          className="px-10 py-12 2xl:mx-auto 2xl:max-w-[1500px]"
           style={motionStyle}
           initial={
             shouldReduceMotion
