@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <div className="relative w-full overflow-hidden px-10 py-14 sm:px-12 sm:py-16">
@@ -45,21 +47,33 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="mt-[150px] grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
-        <div className="grid gap-6 lg:pl-28 sm:grid-cols-2 sm:gap-8 lg:items-stretch">
-          <div className="flex items-start lg:h-full">
+      <section className="mt-16 grid gap-10 sm:mt-24 lg:mt-[150px] lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:pl-28 lg:items-stretch">
+          <div className="flex items-start">
             <div
-              className="mt-1 h-[10.5rem] w-full rounded-sm bg-gray-100 bg-contain bg-center bg-no-repeat shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] lg:mt-12 lg:h-[34%]"
-              style={{ backgroundImage: 'url("/about/F1 Drawing.JPG")' }}
-            />
+              className="relative mt-1 aspect-[4/3] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] lg:mt-12"
+            >
+              <Image
+                src="/about/F1 Drawing.JPG"
+                alt="F1 car drawing"
+                fill
+                sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 100vw"
+                className="object-contain"
+              />
+            </div>
           </div>
           <div className="flex flex-col lg:mt-[6rem] lg:mb-[3rem]">
             <div
-              className="h-full w-full -ml-4 rounded-sm bg-gray-100 bg-cover bg-center shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
-              style={{
-                backgroundImage: 'url("/about/Balcony looking at camera.jpg")',
-              }}
-            />
+              className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)] sm:aspect-[4/5] lg:-ml-4 lg:h-full lg:aspect-auto"
+            >
+              <Image
+                src="/about/Balcony looking at camera.jpg"
+                alt="Balcony portrait looking at camera"
+                fill
+                sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
 
