@@ -12,7 +12,7 @@ const navItems = [
 const sidebarSections = [
   {
     title: "Concept Work",
-    items: ["Apple", "amazon"],
+    items: ["Apple (coming soon)", "amazon (coming soon)"],
   },
   {
     title: "Projects",
