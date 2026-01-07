@@ -98,7 +98,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Hero Section */}
       <Reveal delay={0.1}>
-        <div className="mb-20 mt-12 space-y-5">
+        <div className="mb-8 mt-12 space-y-5">
           <h1 className="text-4xl font-medium tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
             {project.title}
           </h1>
@@ -110,14 +110,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Divider */}
       <Reveal delay={0.15}>
-        <div className="mb-10">
+        <div className="mb-4">
           <hr className="border-t border-gray-200" />
         </div>
       </Reveal>
 
       {/* Hero Image Placeholder */}
       <Reveal delay={0.2}>
-        <div className="mb-24 overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
+        <div className="mt-12 mb-12 overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
           <div className="flex aspect-video items-center justify-center">
             <div className="text-center">
               <div className="mb-3 text-4xl">📸</div>
