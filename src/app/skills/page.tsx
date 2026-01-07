@@ -38,8 +38,8 @@ const skillsData: SkillCategory[] = [
       { name: "React.js", color: "from-cyan-400 to-cyan-600" },
       { name: "Next.js", color: "from-gray-800 to-black" },
       { name: "Vue.js", color: "from-emerald-400 to-emerald-600" },
-      { name: "React Native", color: "from-cyan-400 to-cyan-600" },
       { name: "Node.js", color: "from-emerald-500 to-emerald-700" },
+      { name: "React Native", color: "from-cyan-400 to-cyan-600" },
       { name: "PostgreSQL", color: "from-blue-400 to-blue-600" },
     ],
     layout: "grid",
@@ -50,12 +50,12 @@ const skillsData: SkillCategory[] = [
     items: [
       { name: "AWS", color: "from-orange-400 to-orange-600" },
       { name: "Firebase", color: "from-yellow-400 to-orange-500" },
-      { name: "Supabase", color: "from-emerald-400 to-emerald-600" },
-      { name: "Docker", color: "from-blue-400 to-blue-600" },
       { name: "Prisma", color: "from-purple-400 to-purple-600" },
+      { name: "Docker", color: "from-blue-400 to-blue-600" },
+      { name: "Supabase", color: "from-emerald-400 to-emerald-600" },
       { name: "Git", color: "from-orange-500 to-red-600" },
-      { name: "Jira", color: "from-blue-500 to-blue-700" },
       { name: "PowerBI", color: "from-yellow-500 to-orange-600" },
+      { name: "Jira", color: "from-blue-500 to-blue-700" },
     ],
   },
   {
@@ -79,8 +79,24 @@ const skillsData: SkillCategory[] = [
         color: "from-cyan-400 to-cyan-600",
       },
       {
-        name: "Microsoft Office Suite",
+        name: "Microsoft Office Suite (Word, Excel, PowerPoint) Certified",
         color: "from-blue-500 to-blue-700",
+      },
+      {
+        name: "1st Place Coding & Programming at FBLA State (Top 1%)",
+        color: "from-yellow-400 to-yellow-600",
+      },
+      {
+        name: "3rd Place in the National Cyber League Fall 2023 Challenge (Top 0.5%)",
+        color: "from-gray-400 to-gray-600",
+      },
+      {
+        name: "2nd Place AFCEA Augusta International Military CTF",
+        color: "from-red-600 to-red-800",
+      },
+      {
+        name: "3rd Place International University of California, Santa Barbara AI iCTF",
+        color: "from-green-400 to-green-600",
       },
     ],
   },
@@ -178,16 +194,14 @@ export default function SkillsPage() {
 
       {/* Summary Section */}
       <Reveal delay={0.24}>
-        <div className="mt-12 p-8 rounded-lg bg-gradient-to-br from-gray-50/60 to-gray-100/40 border border-gray-200/50">
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-gray-900">
-              Always Learning
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              I'm passionate about expanding my technical skillset and staying current with emerging technologies. Whether it's exploring new frameworks, cloud platforms, or cybersecurity practices, I approach each opportunity to learn as a chance to build better, more scalable solutions.
-            </p>
-          </div>
-        </div>
+        <section className="mt-8 space-y-3">
+          <h3 className="text-lg font-semibold text-gray-900">
+            Committed to Continous Learning
+          </h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            I'm passionate about expanding my technical skillset and staying current with emerging technologies. Whether it's exploring new frameworks, cloud platforms, or cybersecurity practices, I approach each opportunity to learn as a chance to build better, more scalable solutions.
+          </p>
+        </section>
       </Reveal>
     </div>
   );
