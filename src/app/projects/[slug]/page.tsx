@@ -12,15 +12,16 @@ const projects = [
   {
     title: "BetterCampus",
     slug: "bettercampus",
-    description: "Feature packed extension for Canvas. BetterCampus makes Canvas finally feel like it was built for students. From dark mode and themes to GPA tracking and smarter to-dos — we got you covered.",
+    description: "BetterCampus is a Canvas LMS browser extension that improves the student experience by making assignments, tasks, and themes easier to manage and customize.",
     category: "Previous Work",
     overview:
-      "BetterCampus is a browser extension with over 1,500,000 users that transforms the Canvas LMS experience for students. The platform provides fully customizable dark mode with dozens of themes, custom dashboards with gradient cards and color palettes, smarter to-do lists with assignment previews, an integrated GPA calculator for college and high school, and comprehensive dashboard upgrades including notes, grades display, and sidebar cleanup. Built by students, for students, BetterCampus has earned a 4.9-star rating from over 7,700 reviews.",
+      "BetterCampus is a Chrome extension built to reduce friction in everyday Canvas usage for students. It enhances the platform by introducing a more flexible task and assignment system alongside customizable themes. The goal was to make Canvas feel less rigid and more aligned with how students actually plan and organize their work. The extension runs seamlessly on top of Canvas without disrupting existing workflows.",
     approach:
-      "Built with a modern frontend architecture that integrates seamlessly with Canvas LMS, the extension uses content scripts and DOM manipulation to enhance the existing interface without breaking core functionality. The system emphasizes performance optimization to ensure the extension doesn't slow down Canvas, supports both Chrome and Firefox browsers, and maintains compatibility across Canvas updates. Features like theme scheduling, GPA calculation, and dashboard customization are implemented using efficient local storage and reactive UI updates.",
+      "The extension was built using React and TypeScript, with a focus on modular components that could be reused across different Canvas pages. I worked heavily on integrating assignments and tasks by parsing Canvas data and mapping it into a consistent internal structure. Theme support was implemented by dynamically applying style overrides while preserving Canvas’s base layout. Emphasis was placed on performance and maintainability since the extension runs continuously during Canvas sessions.",
     challenges:
-      "Key challenges included maintaining compatibility with Canvas LMS updates across different institutions, ensuring the extension performs well even on slower devices, implementing a theme engine that supports user-created themes while preventing CSS conflicts, building a robust GPA calculator that works with various grading systems, and managing state synchronization between multiple Canvas tabs. The team also had to carefully design features that enhance rather than interfere with Canvas's core functionality.",
+      "One of the main challenges was working within Canvas’s existing DOM structure, which can change depending on page context. Ensuring that tasks and assignments stayed in sync with Canvas data without causing duplication or inconsistencies required careful state management. Another challenge was applying themes in a way that felt natural and didn’t break accessibility or readability. Balancing customization with reliability was a constant consideration throughout development.",
   },
+
   {
     title: "iVue",
     slug: "ivue",
@@ -202,35 +203,36 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* Challenges & Solutions */}
       <Reveal delay={0.6}>
         <div>
-          <div className="mb-12 grid gap-12 md:grid-cols-12">
-            <div className="md:col-span-4">
-              <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
-                Challenges
-              </h2>
-            </div>
-            <div className="md:col-span-8">
-              <p className="text-sm leading-relaxed text-gray-600 md:text-base">
-                {project.challenges}
-              </p>
-            </div>
-          </div>
-
           {/* Challenge Cards */}
           <div className="mb-20 grid gap-8 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
+            {[
+              {
+                icon: "🧩",
+                title: "Canvas DOM Complexity",
+                text: "Canvas pages vary heavily by context, so I had to rely on stable DOM patterns to safely inject and maintain custom UI components.",
+              },
+              {
+                icon: "🎯",
+                title: "Assignment and Task Consistency",
+                text: "Keeping tasks and assignments in sync required normalizing Canvas data to avoid duplication and state mismatches.",
+              },
+              {
+                icon: "🎨",
+                title: "Theming Without Breaking UX",
+                text: "Themes were implemented using scoped style overrides to preserve readability and avoid disrupting Canvas’s core layout.",
+              },
+            ].map((c, i) => (
               <div
                 key={i}
                 className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100 transition-all duration-300 hover:shadow-lg hover:ring-gray-200"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-2xl transition-transform duration-300 group-hover:scale-110">
-                  {i === 1 ? "⚡" : i === 2 ? "🎯" : "🚀"}
+                  {c.icon}
                 </div>
                 <h3 className="mb-3 text-lg font-semibold text-gray-900">
-                  Challenge {i}
+                  {c.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  Add specific challenge details and how you overcame them with innovative solutions.
-                </p>
+                <p className="text-sm leading-relaxed text-gray-600">{c.text}</p>
               </div>
             ))}
           </div>
