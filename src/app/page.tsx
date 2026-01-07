@@ -31,7 +31,8 @@ export default function Home() {
       subtitle: "Tasks & Assignments",
       date: "2025",
       slug: "bettercampus",
-      mediaStyle: { backgroundImage: "url(/BC.png)" },
+      mediaClass: "bg-cover bg-center bg-no-repeat",
+      mediaStyle: { backgroundImage: "url(/projects/bettercampus/BC-hero.png)" },
     },
     {
       ...baseTile,

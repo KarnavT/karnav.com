@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { use } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import Reveal from "../../../components/motion/Reveal";
@@ -81,6 +79,14 @@ type ProjectPageProps = {
 export default function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = use(params);
   const project = projects.find((item) => item.slug === slug);
+  const isBetterCampus = project?.slug === "bettercampus";
+  const betterCampusMedia = {
+    hero: "/projects/bettercampus/BC-hero.png",
+    feat1: "/projects/bettercampus/BC-feat1.png",
+    feat2: "/projects/bettercampus/BC-feat2.png",
+    wide: "/projects/bettercampus/BC-wide.png",
+    final: "/projects/bettercampus/BC-final.jpg",
+  };
 
   if (!project) {
     notFound();
@@ -118,14 +124,27 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Hero Image Placeholder */}
       <Reveal delay={0.2}>
-        <div className="mt-12 mb-16 overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
-          <div className="flex aspect-video items-center justify-center">
-            <div className="text-center">
-              <div className="mb-3 text-4xl">📸</div>
-              <p className="text-xs font-medium text-gray-500">Hero Image</p>
-              <p className="text-[10px] text-gray-400">Place your main project image here</p>
+        <div className="mt-12 mb-16 overflow-hidden rounded-xl bg-gray-100">
+          {isBetterCampus ? (
+            <div className="relative aspect-video">
+              <Image
+                src={betterCampusMedia.hero}
+                alt="BetterCampus hero view of tasks and assignments"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 1200px, 100vw"
+                priority
+              />
             </div>
-          </div>
+          ) : (
+            <div className="flex aspect-video items-center justify-center">
+              <div className="text-center">
+                <div className="mb-3 text-4xl">📸</div>
+                <p className="text-xs font-medium text-gray-500">Hero Image</p>
+                <p className="text-[10px] text-gray-400">Place your main project image here</p>
+              </div>
+            </div>
+          )}
         </div>
       </Reveal>
 
@@ -163,24 +182,53 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           
           {/* Image Grid */}
           <div className="mt-6 mb-6 grid gap-6 md:grid-cols-2">
-            <div className="overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100">
-              <div className="flex aspect-[4/3] items-center justify-center">
-                <div className="text-center">
-                  <div className="mb-2 text-4xl">🖼️</div>
-                  <p className="text-xs font-medium text-gray-600">Feature Image 1</p>
-                  <p className="text-[10px] text-gray-400">Add technical screenshot</p>
+            {isBetterCampus ? (
+              <>
+                <div className="relative overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={betterCampusMedia.feat1}
+                      alt="BetterCampus task list refinement"
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 600px, 100vw"
+                    />
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-xl bg-gradient-to-br from-violet-50 to-purple-100">
-              <div className="flex aspect-[4/3] items-center justify-center">
-                <div className="text-center">
-                  <div className="mb-2 text-4xl">🖼️</div>
-                  <p className="text-xs font-medium text-gray-600">Feature Image 2</p>
-                  <p className="text-[10px] text-gray-400">Add technical screenshot</p>
+                <div className="relative overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={betterCampusMedia.feat2}
+                      alt="BetterCampus assignment details and theming"
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 600px, 100vw"
+                    />
+                  </div>
                 </div>
-              </div>
-            </div>
+              </>
+            ) : (
+              <>
+                <div className="overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100">
+                  <div className="flex aspect-[4/3] items-center justify-center">
+                    <div className="text-center">
+                      <div className="mb-2 text-4xl">🖼️</div>
+                      <p className="text-xs font-medium text-gray-600">Feature Image 1</p>
+                      <p className="text-[10px] text-gray-400">Add technical screenshot</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="overflow-hidden rounded-xl bg-gradient-to-br from-violet-50 to-purple-100">
+                  <div className="flex aspect-[4/3] items-center justify-center">
+                    <div className="text-center">
+                      <div className="mb-2 text-4xl">🖼️</div>
+                      <p className="text-xs font-medium text-gray-600">Feature Image 2</p>
+                      <p className="text-[10px] text-gray-400">Add technical screenshot</p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Reveal>
@@ -188,14 +236,26 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* Full Width Media Section */}
       <Reveal delay={0.5}>
         <div className="mb-20">
-          <div className="overflow-hidden rounded-xl bg-gradient-to-br from-emerald-50 to-teal-100">
-            <div className="flex aspect-[21/9] items-center justify-center">
-              <div className="text-center">
-                <div className="mb-3 text-5xl">🎨</div>
-                <p className="text-xs font-medium text-gray-600">Wide Feature Image</p>
-                <p className="text-[10px] text-gray-400">Showcase your interface or workflow</p>
+          <div className="overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+            {isBetterCampus ? (
+              <div className="relative aspect-[21/9]">
+                <Image
+                  src={betterCampusMedia.wide}
+                  alt="BetterCampus wide view of workflows"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 1400px, 100vw"
+                />
               </div>
-            </div>
+            ) : (
+              <div className="flex aspect-[21/9] items-center justify-center">
+                <div className="text-center">
+                  <div className="mb-3 text-5xl">🎨</div>
+                  <p className="text-xs font-medium text-gray-600">Wide Feature Image</p>
+                  <p className="text-[10px] text-gray-400">Showcase your interface or workflow</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </Reveal>
@@ -287,14 +347,26 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* Closing Image */}
       <Reveal delay={0.8}>
         <div className="mb-20">
-          <div className="overflow-hidden rounded-xl bg-gradient-to-br from-amber-50 to-orange-100">
-            <div className="flex aspect-video items-center justify-center">
-              <div className="text-center">
-                <div className="mb-3 text-4xl">✨</div>
-                <p className="text-xs font-medium text-gray-600">Final Showcase Image</p>
-                <p className="text-[10px] text-gray-400">Add a compelling closing visual</p>
+          <div className="overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+            {isBetterCampus ? (
+              <div className="relative aspect-video">
+                <Image
+                  src={betterCampusMedia.final}
+                  alt="BetterCampus final UI showcase"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 1200px, 100vw"
+                />
               </div>
-            </div>
+            ) : (
+              <div className="flex aspect-video items-center justify-center">
+                <div className="text-center">
+                  <div className="mb-3 text-4xl">✨</div>
+                  <p className="text-xs font-medium text-gray-600">Final Showcase Image</p>
+                  <p className="text-[10px] text-gray-400">Add a compelling closing visual</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </Reveal>
