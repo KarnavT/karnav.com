@@ -36,7 +36,7 @@ export default function Home() {
     {
       ...baseTile,
       title: "iVue",
-      subtitle: "Remote Drone Interface",
+      subtitle: "Remote Drone Interfaces",
       date: "2024",
       slug: "ivue",
       mediaStyle: { backgroundImage: "url(/iVue.png)" },
