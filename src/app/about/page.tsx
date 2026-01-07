@@ -89,11 +89,11 @@ export default function AboutPage() {
         }
       >
         <div className="space-y-6 lg:pl-28">
-          <p className="absolute left-4 top-0 text-xs uppercase tracking-[0.2em] text-gray-500 sm:left-6 sm:-top-10 lg:left-28" style={{zIndex: 40}}>
+          <p className="absolute left-6 -top-6 text-xs uppercase tracking-[0.2em] text-gray-500 sm:left-[2.75rem] sm:-top-16 md:left-[3.25rem] lg:left-[7.25rem]" style={{zIndex: 40}}>
             Let that fog settle...
           </p>
           <div className="inline-block space-y-4">
-            <h1 className="text-5xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-7xl lg:text-8xl xl:text-9xl">
+            <h1 className="mt-2 text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:mt-0 sm:text-7xl lg:text-8xl xl:text-9xl">
               <span className="block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
                 Karnav
               </span>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="relative mt-10 grid grid-cols-2 gap-4 lg:mt-0 2xl:h-[360px] 2xl:w-full 2xl:-ml-6 2xl:block">
+        <div className="relative mt-1 grid grid-cols-2 gap-4 lg:mt-0 2xl:h-[360px] 2xl:w-full 2xl:-ml-6 2xl:block">
           <div
             className="group relative h-40 w-full overflow-hidden rounded-sm bg-gray-100/70 shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-44 2xl:absolute 2xl:left-[-50px] 2xl:top-[72px] 2xl:h-72 2xl:w-48"
           >
