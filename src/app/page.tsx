@@ -39,6 +39,7 @@ export default function Home() {
       subtitle: "Remote Drone Interface",
       className: "",
       date: "2024",
+      mediaStyle: { backgroundImage: "url(/iVue.png)" },
     },
     {
       ...baseTile,
