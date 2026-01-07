@@ -11,8 +11,8 @@ const navItems = [
 
 const sidebarSections = [
   {
-    title: "Concept Work",
-    items: ["Apple (coming soon)", "amazon (coming soon)"],
+    title: "Previous Work",
+    items: ["BetterCampus", "iVue"],
   },
   {
     title: "Projects",
