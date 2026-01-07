@@ -2,18 +2,36 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 
 export default function AboutPage() {
   const shouldReduceMotion = useReducedMotion();
+  const [isReady, setIsReady] = useState(false);
   const heroDuration = 1.1;
   const restDelay = heroDuration * 0.3;
-  const restMotion = {
-    initial: shouldReduceMotion ? false : { opacity: 0, y: 14 },
-    animate: { opacity: 1, y: 0 },
-    transition: shouldReduceMotion
-      ? { duration: 0 }
-      : { duration: heroDuration, ease: [0.22, 1, 0.36, 1], delay: restDelay },
-  };
+
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
+  const restMotion = useMemo(() => {
+    if (shouldReduceMotion) {
+      return {
+        initial: false,
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0 },
+      };
+    }
+    return {
+      initial: { opacity: 0, y: 14 },
+      animate: isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 },
+      transition: {
+        duration: heroDuration,
+        ease: [0.22, 1, 0.36, 1],
+        delay: restDelay,
+      },
+    };
+  }, [isReady, restDelay, shouldReduceMotion, heroDuration]);
 
   return (
     <div className="relative w-full overflow-hidden px-10 py-14 sm:px-12 sm:py-16">
