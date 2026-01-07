@@ -79,7 +79,7 @@ export default function Sidebar() {
           ].join(" ")}
         >
             <nav aria-label="Primary">
-              <ul className="space-y-1 text-base font-medium text-gray-700">
+              <ul className="space-y-0.5 text-base font-medium text-gray-700">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href;
                   return (
@@ -98,9 +98,9 @@ export default function Sidebar() {
                 })}
               </ul>
             </nav>
-            <div className="mt-4 space-y-4">
+            <div className="mt-4 space-y-4 px-2">
               {sidebarSections.map((section) => (
-                <div key={section.title} className="space-y-2 border-t border-gray-200 pt-2">
+                <div key={section.title} className="space-y-2 border-t border-gray-200 pt-4">
                   <p className="text-xs uppercase tracking-[0.2em] text-gray-500">
                     {section.title}
                   </p>
