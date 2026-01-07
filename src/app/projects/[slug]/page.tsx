@@ -185,12 +185,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {isBetterCampus ? (
               <>
                 <div className="relative overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative aspect-[4/3] ">
                     <Image
                       src={betterCampusMedia.feat1}
                       alt="BetterCampus task list refinement"
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                       sizes="(min-width: 768px) 600px, 100vw"
                     />
                   </div>
@@ -201,7 +201,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       src={betterCampusMedia.feat2}
                       alt="BetterCampus assignment details and theming"
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                       sizes="(min-width: 768px) 600px, 100vw"
                     />
                   </div>
@@ -236,9 +236,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* Full Width Media Section */}
       <Reveal delay={0.5}>
         <div className="mb-20">
-          <div className="overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+          <div className="overflow-hidden rounded-xl bg-gray-50">
             {isBetterCampus ? (
-              <div className="relative aspect-[21/9]">
+              <div className="relative aspect-[21/9] overflow-hidden">
                 <Image
                   src={betterCampusMedia.wide}
                   alt="BetterCampus wide view of workflows"
