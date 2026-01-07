@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type MotionProps } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export default function AboutPage() {
@@ -31,7 +31,7 @@ export default function AboutPage() {
     setIsReady(true);
   }, []);
 
-  const restMotion = useMemo(() => {
+  const restMotion = useMemo<MotionProps>(() => {
     if (shouldReduceMotion) {
       return {
         initial: false,
