@@ -297,7 +297,7 @@ export default function AboutPage() {
                     Traveling to new cities
                   </p>
                   <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
-                    Designing and sketching ideas
+                    Designing and sketching
                   </p>
                   <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
                     Formula 1 Weekends
