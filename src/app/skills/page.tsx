@@ -115,7 +115,7 @@ const SkillCard = ({
   index: number;
 }) => (
   <Reveal delay={0.02 + index * 0.02}>
-    <div className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-gray-50/80 via-gray-50 to-gray-100/60 border border-gray-200/50 p-6 hover:border-gray-300/80 transition-all duration-300 hover:shadow-md hover:scale-105">
+    <div className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-gray-50/80 via-gray-50 to-gray-100/60 border border-gray-200/50 p-6 hover:border-gray-300/80 transition-all duration-300 hover:shadow-md hover:scale-105 h-24 flex flex-col justify-center">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div
           className={`absolute inset-0 bg-gradient-to-br ${item.color || "from-gray-200 to-gray-300"} opacity-5`}
@@ -135,7 +135,7 @@ const SkillCard = ({
 
 export default function SkillsPage() {
   return (
-    <div className="mx-auto w-full max-w-5xl space-y-16">
+    <div className="mx-auto w-full max-w-5xl space-y-10">
       {/* Header */}
       <Reveal delay={0.02}>
         <PageHeader
