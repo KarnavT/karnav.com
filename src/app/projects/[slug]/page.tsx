@@ -245,10 +245,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </h2>
           <div className="grid gap-8 md:grid-cols-4">
             {[
-              { value: "10M+", label: "Users" },
+              { value: "2M+", label: "Users" },
               { value: "99.9%", label: "Uptime" },
               { value: "50ms", label: "Response Time" },
-              { value: "4.8★", label: "Rating" },
+              { value: "4.9★", label: "Rating" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="mb-2 text-5xl font-semibold tracking-tight text-gray-900">
