@@ -21,7 +21,6 @@ const formatDateTime = (date: Date) => {
 export default function Home() {
   const [now, setNow] = useState(() => new Date());
   const baseTile = {
-    className: "",
     mediaClass: "bg-contain bg-center bg-no-repeat",
   };
   const tiles = [
@@ -29,7 +28,6 @@ export default function Home() {
       ...baseTile,
       title: "BetterCampus",
       subtitle: "Tasks & Assignments",
-      className: "",
       date: "2025",
       mediaStyle: { backgroundImage: "url(/BC.png)" },
     },
@@ -37,7 +35,6 @@ export default function Home() {
       ...baseTile,
       title: "iVue",
       subtitle: "Remote Drone Interface",
-      className: "",
       date: "2024",
       mediaStyle: { backgroundImage: "url(/iVue.png)" },
     },
@@ -45,7 +42,6 @@ export default function Home() {
       ...baseTile,
       title: "AuxAI",
       subtitle: "Project",
-      className: "",
       date: "2025",
       mediaStyle: { backgroundImage: "url(/AuxAI.png)" },
     },
@@ -53,7 +49,6 @@ export default function Home() {
       ...baseTile,
       title: "NotiVet",
       subtitle: "Project",
-      className: "",
       date: "2025",
       mediaStyle: { backgroundImage: "url(/NotiVet.png)" },
     },
@@ -61,7 +56,6 @@ export default function Home() {
       ...baseTile,
       title: "F1 Machine Learning Predictor",
       subtitle: "Project",
-      className: "",
       date: "2026",
       mediaStyle: { backgroundImage: "url(/F1-Ferrari.png)" },
     },
@@ -105,15 +99,10 @@ export default function Home() {
         {tiles.map((tile) => (
           <article
             key={tile.title}
-            className={[
-              "group flex h-full w-full flex-col",
-              tile.className,
-            ]
-              .filter(Boolean)
-              .join(" ")}
+            className="group flex h-full w-full flex-col"
           >
             <div className="flex h-full flex-col">
-              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-6 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-[box-shadow,transform] duration-700 ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)]">
+              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-6 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-all duration-[900ms] ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)]">
                 <div className="w-full overflow-hidden rounded-[3px] bg-gray-50">
                   <div
                     className={[
