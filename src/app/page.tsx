@@ -22,7 +22,7 @@ export default function Home() {
   const [now, setNow] = useState(() => new Date());
   const baseTile = {
     className: "",
-    mediaClass: "md:h-40",
+    mediaClass: "bg-contain bg-center bg-no-repeat",
   };
   const tiles = [
     {
@@ -31,6 +31,7 @@ export default function Home() {
       subtitle: "Tasks & Assignments",
       className: "",
       date: "2025",
+      mediaStyle: { backgroundImage: "url(/BC.png)" },
     },
     {
       ...baseTile,
@@ -108,18 +109,20 @@ export default function Home() {
               .join(" ")}
           >
             <div className="flex h-full flex-col">
-              <div className="rounded-sm bg-gray-50 p-6 shadow-[0_8px_16px_-14px_rgba(15,23,42,0.22)] transition-[box-shadow,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:shadow-[0_12px_20px_-16px_rgba(15,23,42,0.26)]">
-                <div
-                  className={[
-                    "w-full rounded-[3px] bg-gray-50",
-                    "h-24",
-                    tile.mediaClass ?? "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                />
+              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-6 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-[box-shadow,transform] duration-700 ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)]">
+                <div className="w-full overflow-hidden rounded-[3px] bg-gray-50">
+                  <div
+                    className={[
+                      "aspect-[16/9] w-full",
+                      tile.mediaClass ?? "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    style={tile.mediaStyle}
+                  />
+                </div>
               </div>
-              <div className="flex items-start justify-between gap-4 bg-white px-1 pt-2 text-lg font-semibold text-gray-700 shadow-[0_-10px_20px_-20px_rgba(15,23,42,0.35)] transition-shadow duration-200 ease-out group-hover:shadow-[0_-16px_26px_-20px_rgba(15,23,42,0.4)]">
+              <div className="flex items-start justify-between gap-4 bg-white px-1 pt-2 text-lg font-semibold text-gray-700">
                 <div>
                   <p className="text-lg font-semibold text-gray-700 drop-shadow-[0_1px_1px_rgba(15,23,42,0.08)]">
                     {tile.title}
