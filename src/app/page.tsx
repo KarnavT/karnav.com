@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const formatDateTime = (date: Date) => {
@@ -29,6 +30,7 @@ export default function Home() {
       title: "BetterCampus",
       subtitle: "Tasks & Assignments",
       date: "2025",
+      slug: "bettercampus",
       mediaStyle: { backgroundImage: "url(/BC.png)" },
     },
     {
@@ -36,6 +38,7 @@ export default function Home() {
       title: "iVue",
       subtitle: "Remote Drone Interface",
       date: "2024",
+      slug: "ivue",
       mediaStyle: { backgroundImage: "url(/iVue.png)" },
     },
     {
@@ -43,6 +46,7 @@ export default function Home() {
       title: "AuxAI",
       subtitle: "Project",
       date: "2025",
+      slug: "auxai",
       mediaStyle: { backgroundImage: "url(/AuxAI.png)" },
     },
     {
@@ -50,6 +54,7 @@ export default function Home() {
       title: "NotiVet",
       subtitle: "Project",
       date: "2025",
+      slug: "notivet",
       mediaStyle: { backgroundImage: "url(/NotiVet.png)" },
     },
     {
@@ -57,6 +62,7 @@ export default function Home() {
       title: "F1 Machine Learning Predictor",
       subtitle: "Project",
       date: "2026",
+      slug: "f1-predictor",
       mediaStyle: { backgroundImage: "url(/F1-Ferrari.png)" },
     },
   ];
@@ -97,8 +103,9 @@ export default function Home() {
 
       <section className="grid gap-8 md:grid-cols-3">
         {tiles.map((tile) => (
-          <article
+          <Link
             key={tile.title}
+            href={`/projects/${tile.slug}`}
             className="group flex h-full w-full flex-col"
           >
             <div className="flex h-full flex-col">
@@ -130,7 +137,7 @@ export default function Home() {
                 <p className="text-sm font-medium text-gray-300">{tile.date}</p>
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </section>
     </div>

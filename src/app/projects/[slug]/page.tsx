@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { use } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import Reveal from "../../../components/motion/Reveal";
@@ -9,60 +10,72 @@ import Section from "../../../components/ui/Section";
 
 const projects = [
   {
-    title: "Signal Notes",
-    slug: "signal-notes",
-    description: "A minimal research workspace with flexible capture flows.",
+    title: "BetterCampus",
+    slug: "bettercampus",
+    description: "A comprehensive platform for managing tasks and assignments, designed to improve student productivity.",
     overview:
-      "Placeholder copy goes here to outline scope, intent, and outcomes.",
+      "BetterCampus is a full-stack application built to streamline academic task management for students. The platform provides intuitive interfaces for tracking assignments, deadlines, and course materials, helping millions of users stay organized throughout their academic journey.",
     approach:
-      "Placeholder copy goes here to describe the technical direction.",
+      "Built with a modern React frontend and robust backend infrastructure, the system emphasizes real-time synchronization and offline-first capabilities. The architecture prioritizes scalability to handle high-traffic periods like exam seasons.",
     challenges:
-      "Placeholder copy goes here to capture constraints and trade-offs.",
+      "Key challenges included optimizing database queries for complex scheduling operations, implementing reliable push notifications across platforms, and ensuring data consistency during concurrent updates from multiple devices.",
   },
   {
-    title: "Atlas Studio",
-    slug: "atlas-studio",
-    description: "A concept workspace for spatial planning and project mapping.",
+    title: "iVue",
+    slug: "ivue",
+    description: "A remote drone interface enabling real-time control and monitoring of drone operations.",
     overview:
-      "Placeholder copy goes here to outline scope, intent, and outcomes.",
+      "iVue provides operators with a comprehensive interface for remote drone control, featuring live video streaming, telemetry visualization, and mission planning capabilities. The system enables safe and efficient drone operations from anywhere.",
     approach:
-      "Placeholder copy goes here to describe the technical direction.",
+      "The interface leverages WebRTC for low-latency video streaming and WebSocket connections for real-time telemetry data. Custom visualization components display flight metrics, battery status, and environmental conditions in an intuitive dashboard.",
     challenges:
-      "Placeholder copy goes here to capture constraints and trade-offs.",
+      "Managing network latency for responsive controls, implementing reliable failsafe mechanisms for connection drops, and optimizing video compression for varying bandwidth conditions were primary technical challenges.",
   },
   {
-    title: "Quiet Stack",
-    slug: "quiet-stack",
-    description: "A lightweight toolchain for focused, distraction-free builds.",
+    title: "AuxAI",
+    slug: "auxai",
+    description: "An AI-powered assistant that enhances productivity through intelligent automation.",
     overview:
-      "Placeholder copy goes here to outline scope, intent, and outcomes.",
+      "AuxAI is an intelligent assistant that learns user workflows and automates repetitive tasks. The system uses natural language processing to understand commands and machine learning to predict user needs.",
     approach:
-      "Placeholder copy goes here to describe the technical direction.",
+      "The project combines transformer-based language models with custom fine-tuning for domain-specific tasks. A modular plugin architecture allows integration with various productivity tools and services.",
     challenges:
-      "Placeholder copy goes here to capture constraints and trade-offs.",
+      "Balancing model accuracy with response latency, handling ambiguous user inputs gracefully, and maintaining user privacy while enabling personalization were key considerations during development.",
   },
   {
-    title: "Field Log",
-    slug: "field-log",
-    description: "A modular logbook for ideas, experiments, and iterations.",
+    title: "NotiVet",
+    slug: "notivet",
+    description: "A notification and management system for veterinary practices and pet owners.",
     overview:
-      "Placeholder copy goes here to outline scope, intent, and outcomes.",
+      "NotiVet connects veterinary clinics with pet owners through a unified communication platform. The system handles appointment scheduling, medication reminders, and health record management.",
     approach:
-      "Placeholder copy goes here to describe the technical direction.",
+      "A mobile-first design ensures accessibility for pet owners on the go, while the clinic dashboard provides comprehensive practice management tools. The backend uses event-driven architecture for reliable notification delivery.",
     challenges:
-      "Placeholder copy goes here to capture constraints and trade-offs.",
+      "Designing notification systems that are helpful without being intrusive, ensuring HIPAA-like compliance for pet health records, and integrating with existing veterinary practice management software required careful consideration.",
+  },
+  {
+    title: "F1 Machine Learning Predictor",
+    slug: "f1-predictor",
+    description: "A machine learning model that predicts Formula 1 race outcomes using historical data and real-time analytics.",
+    overview:
+      "This project applies machine learning techniques to predict Formula 1 race results, qualifying positions, and championship outcomes. The model analyzes historical race data, weather conditions, track characteristics, and driver performance metrics.",
+    approach:
+      "The prediction pipeline combines gradient boosting models with neural networks to capture both tabular features and temporal patterns. Real-time data ingestion during race weekends enables live prediction updates.",
+    challenges:
+      "Handling the high dimensionality of F1 data, accounting for regulation changes between seasons, and modeling the inherent unpredictability of motorsport events required innovative feature engineering and ensemble techniques.",
   },
 ];
 
 type ProjectPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = use(params);
   const shouldReduceMotion = useReducedMotion();
-  const project = projects.find((item) => item.slug === params.slug);
+  const project = projects.find((item) => item.slug === slug);
 
   if (!project) {
     notFound();
@@ -70,19 +83,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div className="mx-auto w-full max-w-4xl space-y-12">
-      <motion.div
-        className="inline-flex"
-        whileHover={shouldReduceMotion ? undefined : { x: 2 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-      >
-        <Link
-          href="/projects"
-          className="text-sm text-gray-500 transition-colors duration-200 hover:text-gray-900"
-        >
-          Back to Projects
-        </Link>
-      </motion.div>
-
       <Reveal delay={0.02}>
         <motion.header
           layoutId={`project-card-${project.slug}`}

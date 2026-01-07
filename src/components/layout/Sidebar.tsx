@@ -12,11 +12,18 @@ const navItems = [
 const sidebarSections = [
   {
     title: "Previous Work",
-    items: ["BetterCampus", "iVue"],
+    items: [
+      { label: "BetterCampus", href: "/projects/bettercampus" },
+      { label: "iVue", href: "/projects/ivue" },
+    ],
   },
   {
     title: "Projects",
-    items: ["AuxAI", "NotiVet", "F1 Race Predictor"],
+    items: [
+      { label: "AuxAI", href: "/projects/auxai" },
+      { label: "NotiVet", href: "/projects/notivet" },
+      { label: "F1 Race Predictor", href: "/projects/f1-predictor" },
+    ],
   },
   {
     title: "Links",
@@ -69,31 +76,25 @@ export default function Sidebar() {
               {section.title}
             </p>
             <ul className="space-y-1 text-sm font-medium text-gray-600">
-              {section.items.map((item) => {
-                if (typeof item === "string") {
-                  return <li key={item}>{item}</li>;
-                }
-
-                return (
-                  <li key={item.label}>
-                    <Link
-                      className="group relative inline-flex text-gray-600"
-                      href={item.href}
-                      rel="noreferrer"
-                      target={
-                        item.href.startsWith("http") || item.href.endsWith(".pdf")
-                          ? "_blank"
-                          : undefined
-                      }
-                    >
-                      <span className="relative">
-                        {item.label}
-                        <span className="absolute left-0 top-full h-px w-full origin-left scale-x-0 bg-gray-900 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                      </span>
-                    </Link>
-                  </li>
-                );
-              })}
+              {section.items.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    className="group relative inline-flex text-gray-600"
+                    href={item.href}
+                    rel="noreferrer"
+                    target={
+                      item.href.startsWith("http") || item.href.startsWith("mailto:")
+                        ? "_blank"
+                        : undefined
+                    }
+                  >
+                    <span className="relative">
+                      {item.label}
+                      <span className="absolute left-0 top-full h-px w-full origin-left scale-x-0 bg-gray-900 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         ))}
