@@ -89,6 +89,9 @@ export default function AboutPage() {
         }
       >
         <div className="space-y-6 lg:pl-28">
+          <p className="absolute left-10 -top-17 text-xs uppercase tracking-[0.2em] text-gray-500 sm:left-12 lg:left-28" style={{zIndex: 40}}>
+            Let that fog settle...
+          </p>
           <div className="inline-block space-y-4">
             <h1 className="text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-9xl">
               <span className="block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
