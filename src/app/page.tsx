@@ -54,6 +54,7 @@ export default function Home() {
       subtitle: "Project",
       className: "",
       date: "2025",
+      mediaStyle: { backgroundImage: "url(/NotiVet.png)" },
     },
     {
       ...baseTile,
