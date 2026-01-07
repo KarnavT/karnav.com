@@ -92,9 +92,20 @@ export default function AboutPage() {
         }
       >
         <div className="space-y-6 lg:pl-28">
-          <p className="absolute left-6 -top-6 text-xs uppercase tracking-[0.2em] text-gray-500 sm:left-[2.75rem] sm:-top-16 md:left-[3.25rem] lg:left-[7.25rem]" style={{zIndex: 40}}>
+          <motion.p 
+            className="absolute left-6 -top-6 text-xs uppercase tracking-[0.2em] sm:left-[2.75rem] sm:-top-16 md:left-[3.25rem] lg:left-[7.25rem]" 
+            style={{zIndex: 40, color: 'rgb(156, 163, 175)'}}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={shouldReduceMotion ? {} : (isReady ? { 
+              opacity: 1
+            } : { opacity: 0 })}
+            transition={{
+              duration: 1.8,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+          >
             Let that fog settle...
-          </p>
+          </motion.p>
           <div className="inline-block space-y-4">
             <h1 className="mt-2 text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:mt-0 sm:text-7xl lg:text-8xl xl:text-9xl">
               <span className="block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
