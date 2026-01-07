@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Karnav Trivedi",
   description: "Portfolio base layout",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
