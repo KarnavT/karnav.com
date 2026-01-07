@@ -28,3 +28,35 @@ body {
 .scrollbar-stable {
   scrollbar-gutter: stable;
 }
+
+@keyframes fog-drift-1 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(30px) translateY(-10px); }
+}
+
+@keyframes fog-drift-2 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-25px) translateY(8px); }
+}
+
+@keyframes fog-drift-3 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(15px) translateY(-5px); }
+}
+
+.fog-layer {
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.fog-layer-1 {
+  animation: fog-drift-1 20s ease-in-out infinite;
+}
+
+.fog-layer-2 {
+  animation: fog-drift-2 25s ease-in-out infinite;
+}
+
+.fog-layer-3 {
+  animation: fog-drift-3 18s ease-in-out infinite;
+}

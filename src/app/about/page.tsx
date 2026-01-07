@@ -2,13 +2,30 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export default function AboutPage() {
   const shouldReduceMotion = useReducedMotion();
   const [isReady, setIsReady] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const heroDuration = 1.1;
   const restDelay = heroDuration * 0.3;
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    setIsReady(true);
+    const mainEl = document.querySelector('main');
+    if (!mainEl) return;
+    
+    const handleScroll = () => {
+      setScrollY(mainEl.scrollTop);
+    };
+    
+    mainEl.addEventListener('scroll', handleScroll);
+    return () => mainEl.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  const fogProgress = Math.min(scrollY / 400, 1);
 
   useEffect(() => {
     setIsReady(true);
@@ -34,7 +51,32 @@ export default function AboutPage() {
   }, [isReady, restDelay, shouldReduceMotion, heroDuration]);
 
   return (
-    <div className="relative w-full overflow-hidden px-10 py-14 sm:px-12 sm:py-16">
+    <div ref={containerRef} className="relative w-full overflow-visible px-10 py-14 sm:px-12 sm:py-16 min-h-screen">
+      {/* Overall page mist overlay */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-30"
+        style={{
+          opacity: Math.max(0, 0.4 - fogProgress * 0.5),
+          background: `
+            linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(250,250,252,0.15) 30%, transparent 60%),
+            radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,255,255,0.25) 0%, transparent 70%)
+          `,
+        }}
+      />
+      
+      {/* Corner fog wisps */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-30"
+        style={{
+          opacity: Math.max(0, 0.6 - fogProgress * 0.7),
+          background: `
+            radial-gradient(ellipse 50% 40% at 0% 0%, rgba(245,245,250,0.8) 0%, transparent 70%),
+            radial-gradient(ellipse 40% 35% at 100% 0%, rgba(250,250,255,0.7) 0%, transparent 65%),
+            radial-gradient(ellipse 45% 50% at 0% 100%, rgba(248,248,252,0.6) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 45% at 100% 100%, rgba(245,248,255,0.5) 0%, transparent 55%)
+          `,
+        }}
+      />
 
       <motion.div
         className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start"
@@ -66,23 +108,33 @@ export default function AboutPage() {
 
         <div className="relative mt-10 grid grid-cols-2 gap-4 lg:mt-0 2xl:h-[360px] 2xl:w-full 2xl:-ml-6 2xl:block">
           <div
-            className="relative h-40 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-44 2xl:absolute 2xl:left-[-50px] 2xl:top-[72px] 2xl:h-72 2xl:w-48"
-            style={{ backgroundImage: 'url("/about/Waterfall.jpg")' }}
-          />
+            className="group relative h-40 w-full overflow-hidden rounded-sm bg-gray-100/70 shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-44 2xl:absolute 2xl:left-[-50px] 2xl:top-[72px] 2xl:h-72 2xl:w-48"
+          >
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/about/Waterfall.jpg")' }} />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/30" />
+            <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 40px 15px rgba(255,255,255,0.4)' }} />
+          </div>
           <div
-            className="relative h-40 w-full rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_28px_40px_-30px_rgba(15,23,42,0.4)] sm:h-44 2xl:absolute 2xl:left-40 2xl:top-[-30px] 2xl:h-[20rem] 2xl:w-56"
-            style={{
-              backgroundImage: 'url("/about/Balcony holding glasses.jpg")',
-            }}
-          />
+            className="group relative h-40 w-full overflow-hidden rounded-sm bg-gray-100/60 shadow-[0_28px_40px_-30px_rgba(15,23,42,0.4)] sm:h-44 2xl:absolute 2xl:left-40 2xl:top-[-30px] 2xl:h-[20rem] 2xl:w-56"
+          >
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/about/Balcony holding glasses.jpg")' }} />
+            <div className="absolute inset-0 bg-gradient-to-tl from-white/35 via-transparent to-white/25" />
+            <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 50px 20px rgba(255,255,255,0.35)' }} />
+          </div>
           <div
-            className="relative h-40 w-full rounded-sm bg-gray-100/65 bg-cover bg-center shadow-[0_22px_30px_-26px_rgba(15,23,42,0.32)] sm:h-44 2xl:absolute 2xl:left-[25rem] 2xl:top-[-20px] 2xl:h-40 2xl:w-50"
-            style={{ backgroundImage: 'url("/about/Modern Architecture.jpg")' }}
-          />
+            className="group relative h-40 w-full overflow-hidden rounded-sm bg-gray-100/65 shadow-[0_22px_30px_-26px_rgba(15,23,42,0.32)] sm:h-44 2xl:absolute 2xl:left-[25rem] 2xl:top-[-20px] 2xl:h-40 2xl:w-50"
+          >
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/about/Modern Architecture.jpg")' }} />
+            <div className="absolute inset-0 bg-gradient-to-bl from-white/45 via-transparent to-white/35" />
+            <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 35px 12px rgba(255,255,255,0.45)' }} />
+          </div>
           <div
-            className="relative h-40 w-full rounded-sm bg-gray-100/60 bg-cover bg-center shadow-[0_24px_32px_-28px_rgba(15,23,42,0.34)] sm:h-44 2xl:absolute 2xl:left-[25rem] 2xl:top-40 2xl:h-51 2xl:w-50"
-            style={{ backgroundImage: 'url("/about/Epcot Boat.jpg")' }}
-          />
+            className="group relative h-40 w-full overflow-hidden rounded-sm bg-gray-100/60 shadow-[0_24px_32px_-28px_rgba(15,23,42,0.34)] sm:h-44 2xl:absolute 2xl:left-[25rem] 2xl:top-40 2xl:h-51 2xl:w-50"
+          >
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/about/Epcot Boat.jpg")' }} />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/40 via-transparent to-white/30" />
+            <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 45px 18px rgba(255,255,255,0.4)' }} />
+          </div>
         </div>
       </motion.div>
 
@@ -100,6 +152,8 @@ export default function AboutPage() {
                   sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 100vw"
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/25" />
+                <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 40px 15px rgba(255,255,255,0.35)' }} />
               </div>
             </div>
             <div className="flex flex-col lg:mt-[6rem] lg:mb-[3rem]">
@@ -113,6 +167,8 @@ export default function AboutPage() {
                   sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 100vw"
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-tl from-white/35 via-transparent to-white/20" />
+                <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 50px 18px rgba(255,255,255,0.3)' }} />
               </div>
             </div>
           </div>
@@ -175,9 +231,12 @@ export default function AboutPage() {
             <div className="lg:ml-[10px] lg:justify-self-stretch">
               <div className="relative mt-6">
                 <div
-                  className="relative h-48 w-full rounded-sm bg-gray-100/70 bg-cover bg-center shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-56"
-                  style={{ backgroundImage: 'url("/about/GT Spring Background.jpg")' }}
-                />
+                  className="relative h-48 w-full overflow-hidden rounded-sm bg-gray-100/70 shadow-[0_24px_34px_-28px_rgba(15,23,42,0.35)] sm:h-56"
+                >
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/about/GT Spring Background.jpg")' }} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/25" />
+                  <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 45px 15px rgba(255,255,255,0.35)' }} />
+                </div>
                 <p className="mt-3 text-xs text-gray-500">
                   Georgia Tech campus during the spring
                 </p>
@@ -245,13 +304,19 @@ export default function AboutPage() {
 
               <div className="relative flex items-start justify-between gap-4 lg:gap-4">
                 <div
-                  className="relative w-65 h-105 -translate-y-15 aspect-[3/4] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[4/5]"
-                  style={{ backgroundImage: 'url("/about/Donald Duck Drawing.jpg")'}}
-                />
+                  className="relative w-65 h-105 -translate-y-15 aspect-[3/4] overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[4/5]"
+                >
+                  <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("/about/Donald Duck Drawing.jpg")'}} />
+                  <div className="absolute inset-0 bg-gradient-to-tl from-white/35 via-transparent to-white/25" />
+                  <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 40px 14px rgba(255,255,255,0.35)' }} />
+                </div>
                 <div
-                  className="relative w-65 h-90 translate-y-[30px] rounded-sm bg-gray-100 bg-cover bg-center bg-no-repeat shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
-                  style={{ backgroundImage: 'url("/about/F1.jpg")' }}
-                />
+                  className="relative w-65 h-90 translate-y-[30px] overflow-hidden rounded-sm bg-gray-100 shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
+                >
+                  <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("/about/F1.jpg")' }} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/30" />
+                  <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 45px 16px rgba(255,255,255,0.35)' }} />
+                </div>
               </div>
             </div>
           </div>
