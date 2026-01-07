@@ -131,12 +131,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* Overview Section */}
       <Reveal delay={0.3}>
         <div className="mb-20 grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-6">
+          <div className="md:col-span-4">
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
               Overview
             </h2>
           </div>
-          <div className="md:col-span-6">
+          <div className="md:col-span-8">
             <p className="text-sm leading-relaxed text-gray-600 md:text-base">
               {project.overview}
             </p>
@@ -146,14 +146,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Feature Showcase 1 */}
       <Reveal delay={0.4}>
-        <div className="mb-32">
+        <div className="mb-12">
           <div className="mb-16 grid gap-12 md:grid-cols-12">
-            <div className="md:col-span-6">
+            <div className="md:col-span-4">
               <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
                 Technical Approach
               </h2>
             </div>
-            <div className="md:col-span-6">
+            <div className="md:col-span-8">
               <p className="text-sm leading-relaxed text-gray-600 md:text-base">
                 {project.approach}
               </p>
@@ -203,12 +203,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <Reveal delay={0.6}>
         <div>
           <div className="mb-12 grid gap-12 md:grid-cols-12">
-            <div className="md:col-span-6">
+            <div className="md:col-span-4">
               <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">
                 Challenges
               </h2>
             </div>
-            <div className="md:col-span-6">
+            <div className="md:col-span-8">
               <p className="text-sm leading-relaxed text-gray-600 md:text-base">
                 {project.challenges}
               </p>
