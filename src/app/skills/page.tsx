@@ -2,13 +2,13 @@ import Reveal from "../../components/motion/Reveal";
 import PageHeader from "../../components/ui/PageHeader";
 import Section from "../../components/ui/Section";
 
-export default function IdeasPage() {
+export default function SkillsPage() {
   return (
     <div className="mx-auto w-full max-w-4xl space-y-14">
       <Reveal delay={0.02}>
         <PageHeader
-          title="Ideas"
-          subtitle="Notes, prompts, and works in progress."
+          title="Skills"
+          subtitle="Capabilities, tools, and focus areas."
         />
       </Reveal>
       <Reveal delay={0.04}>
