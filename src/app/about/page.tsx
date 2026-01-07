@@ -51,7 +51,7 @@ export default function AboutPage() {
   }, [isReady, restDelay, shouldReduceMotion, heroDuration]);
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-visible px-10 py-14 sm:px-12 sm:py-16 min-h-screen">
+    <div ref={containerRef} className="relative w-full overflow-visible px-4 py-10 sm:px-6 sm:py-14 lg:px-12 lg:py-16 min-h-screen">
       {/* Overall page mist overlay */}
       <div 
         className="pointer-events-none fixed inset-0 z-30"
@@ -89,11 +89,11 @@ export default function AboutPage() {
         }
       >
         <div className="space-y-6 lg:pl-28">
-          <p className="absolute left-10 -top-17 text-xs uppercase tracking-[0.2em] text-gray-500 sm:left-12 lg:left-28" style={{zIndex: 40}}>
+          <p className="absolute left-4 top-0 text-xs uppercase tracking-[0.2em] text-gray-500 sm:left-6 sm:-top-10 lg:left-28" style={{zIndex: 40}}>
             Let that fog settle...
           </p>
           <div className="inline-block space-y-4">
-            <h1 className="text-8xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-9xl">
+            <h1 className="text-5xl font-medium leading-[0.98] tracking-tight text-transparent sm:text-7xl lg:text-8xl xl:text-9xl">
               <span className="block bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
                 Karnav
               </span>
@@ -101,7 +101,7 @@ export default function AboutPage() {
                 Trivedi
               </span>
             </h1>
-            <p className="ml-3 w-full text-3xl font-[450] text-transparent sm:ml-4 sm:text-4xl">
+            <p className="ml-2 w-full text-2xl font-[450] text-transparent sm:ml-4 sm:text-3xl lg:text-4xl">
               <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-600 bg-clip-text">
                 કર્ણવ ત્રિવેદી
               </span>
@@ -289,32 +289,32 @@ export default function AboutPage() {
           <div className="w-full lg:max-w-[calc((100%-2.5rem)*11/21+2.5rem+26rem-20px)]">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
               <div className="space-y-6">
-                <p className="relative translate-y-15 text-xs uppercase tracking-[0.4em] text-gray-400">
+                <p className="relative text-xs uppercase tracking-[0.4em] text-gray-400 sm:translate-y-15">
                   Things I love to do
                 </p>
                 <div className="mt-20 space-y-1">
-                  <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  <p className="text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl lg:text-2xl xl:text-3xl">
                     Traveling to new cities
                   </p>
-                  <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  <p className="text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl lg:text-2xl xl:text-3xl">
                     Designing and sketching
                   </p>
-                  <p className="text-3xl font-medium tracking-tight text-gray-900 lg:text-2xl xl:text-3xl">
+                  <p className="text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl lg:text-2xl xl:text-3xl">
                     Formula 1 Weekends
                   </p>
                 </div>
               </div>
 
-              <div className="relative flex items-start justify-between gap-4 lg:gap-4">
+              <div className="relative flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between lg:gap-4">
                 <div
-                  className="relative w-65 h-105 -translate-y-15 aspect-[3/4] overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[4/5]"
+                  className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_22px_30px_-24px_rgba(15,23,42,0.25)] sm:aspect-[3/4] sm:w-65 sm:h-105 sm:-translate-y-15"
                 >
                   <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("/about/Donald Duck Drawing.jpg")'}} />
                   <div className="absolute inset-0 bg-gradient-to-tl from-white/35 via-transparent to-white/25" />
                   <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 40px 14px rgba(255,255,255,0.35)' }} />
                 </div>
                 <div
-                  className="relative w-65 h-90 translate-y-[30px] overflow-hidden rounded-sm bg-gray-100 shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)]"
+                  className="relative h-72 w-full overflow-hidden rounded-sm bg-gray-100 shadow-[0_24px_32px_-26px_rgba(15,23,42,0.25)] sm:h-90 sm:w-65 sm:translate-y-[30px]"
                 >
                   <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("/about/F1.jpg")' }} />
                   <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/30" />

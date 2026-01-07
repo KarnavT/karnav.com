@@ -34,7 +34,7 @@ export default function Shell({ children }: ShellProps) {
       <Sidebar />
       <main
         ref={mainRef}
-        className="relative ml-60 h-screen overflow-y-auto scrollbar-stable"
+        className="relative h-screen overflow-y-auto pt-16 scrollbar-stable lg:ml-60 lg:pt-0"
       >
         <div className="sticky top-0 z-20 h-0.5 w-full pointer-events-none">
           {shouldReduceMotion ? (
@@ -49,7 +49,7 @@ export default function Shell({ children }: ShellProps) {
         </div>
         <motion.div
           key={pathname}
-          className="px-10 py-12 2xl:mx-auto 2xl:max-w-[1500px]"
+          className="px-4 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 2xl:mx-auto 2xl:max-w-[1500px]"
           style={motionStyle}
           initial={
             shouldReduceMotion

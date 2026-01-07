@@ -73,8 +73,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full space-y-6 px-6 pb-16 pt-10 sm:px-10">
-      <header className="flex flex-col gap-2 text-lg font-medium text-transparent sm:flex-row sm:items-center sm:justify-between">
+    <div className="w-full space-y-6 px-4 pb-14 pt-6 sm:px-6 lg:px-10">
+      <header className="flex flex-col gap-2 text-base font-medium text-transparent sm:flex-row sm:items-center sm:justify-between sm:text-lg">
         <div className="flex flex-wrap items-center gap-2">
           <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
             Hello there!
@@ -86,7 +86,7 @@ export default function Home() {
       </header>
 
       <section className="-ml-1 space-y-8">
-        <p className="text-3xl font-semibold leading-tight tracking-tight text-transparent sm:text-[2.5rem] sm:leading-[1.3]">
+        <p className="text-2xl font-semibold leading-tight tracking-tight text-transparent sm:text-[2.5rem] sm:leading-[1.3]">
           <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
               Karnav is a software engineer building intelligent, high-performance systems that are intuitive and scalable. 
               His work spans full-stack, AI-driven products from platforms used by millions to real-time systems. 
@@ -101,7 +101,7 @@ export default function Home() {
         </p>
       </div>
 
-      <section className="grid gap-8 md:grid-cols-3">
+      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {tiles.map((tile) => (
           <Link
             key={tile.title}
@@ -109,7 +109,7 @@ export default function Home() {
             className="group flex h-full w-full flex-col"
           >
             <div className="flex h-full flex-col">
-              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-6 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-all duration-[900ms] ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)]">
+              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-4 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-all duration-[900ms] ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)] sm:p-6">
                 <div className="w-full overflow-hidden rounded-[3px] bg-gray-50">
                   <div
                     className={[
@@ -122,19 +122,19 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="flex items-start justify-between gap-4 bg-white px-1 pt-2 text-lg font-semibold text-gray-700">
+              <div className="flex items-start justify-between gap-4 bg-white px-1 pt-2 text-base font-semibold text-gray-700 sm:text-lg">
                 <div>
-                  <p className="text-lg font-semibold text-gray-700 drop-shadow-[0_1px_1px_rgba(15,23,42,0.08)]">
+                  <p className="text-base font-semibold text-gray-700 drop-shadow-[0_1px_1px_rgba(15,23,42,0.08)] sm:text-lg">
                     {tile.title}
                   </p>
                   <p
-                    className="-mt-1 text-lg text-gray-400"
+                    className="-mt-1 text-base text-gray-400 sm:text-lg"
                     style={{ fontWeight: 450 }}
                   >
                     {tile.subtitle}
                   </p>
                 </div>
-                <p className="text-sm font-medium text-gray-300">{tile.date}</p>
+                <p className="text-xs font-medium text-gray-300 sm:text-sm">{tile.date}</p>
               </div>
             </div>
           </Link>

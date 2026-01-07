@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "About", href: "/about" },
@@ -38,10 +39,97 @@ const sidebarSections = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
-    <aside className="fixed inset-y-0 left-0 w-60 border-r border-gray-200 bg-white px-8 py-10">
-      <div className="space-y-10">
+    <>
+      <header className="fixed left-0 right-0 top-0 z-30 border-b border-gray-200 bg-white lg:hidden">
+        <div className="flex items-center justify-between px-4 pt-4 pb-4">
+          <Link
+            href="/"
+            className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-xl font-bold text-gray-900"
+          >
+            કર્ણવ
+          </Link>
+          <button
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav"
+            aria-label="Toggle menu"
+            className="inline-flex h-10 w-10 items-center justify-center text-gray-700 focus-visible:outline-none"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            <span className="sr-only">Menu</span>
+            <span className="flex flex-col items-center justify-center gap-1">
+              <span className="h-0.5 w-6 bg-gray-700" />
+              <span className="h-0.5 w-6 bg-gray-700" />
+              <span className="h-0.5 w-6 bg-gray-700" />
+            </span>
+          </button>
+        </div>
+        <div
+          id="mobile-nav"
+          className={[
+            "border-t border-gray-100 px-4 overflow-hidden transition-all duration-500 ease-out",
+            isOpen ? "max-h-[calc(100vh-56px)] opacity-100 translate-y-0 pt-4 pb-4" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none",
+          ].join(" ")}
+        >
+            <nav aria-label="Primary">
+              <ul className="space-y-1 text-base font-medium text-gray-700">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        className={[
+                          "block rounded px-2 py-1 text-gray-700",
+                          isActive ? "bg-gray-100 text-gray-900" : "hover:text-gray-900",
+                        ].join(" ")}
+                        href={item.href}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+            <div className="mt-4 space-y-4">
+              {sidebarSections.map((section) => (
+                <div key={section.title} className="space-y-2 border-t border-gray-200 pt-2">
+                  <p className="text-xs uppercase tracking-[0.2em] text-gray-500">
+                    {section.title}
+                  </p>
+                  <ul className="space-y-1 text-sm font-medium text-gray-600">
+                    {section.items.map((item) => (
+                      <li key={item.label}>
+                        <Link
+                          className="inline-flex text-gray-600 hover:text-gray-900"
+                          href={item.href}
+                          rel="noreferrer"
+                          target={
+                            item.href.startsWith("http") || item.href.startsWith("mailto:")
+                              ? "_blank"
+                              : undefined
+                          }
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+      </header>
+
+      <aside className="fixed inset-y-0 left-0 hidden w-60 border-r border-gray-200 bg-white px-8 py-10 lg:block">
+        <div className="space-y-10">
         <div className="space-y-6">
           <Link href="/" className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-2xl font-bold text-gray-900">કર્ણવ
           </Link>
@@ -100,5 +188,6 @@ export default function Sidebar() {
         ))}
       </div>
     </aside>
+    </>
   );
 }
