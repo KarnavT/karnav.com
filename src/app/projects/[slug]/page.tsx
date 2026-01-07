@@ -118,7 +118,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Hero Image Placeholder */}
       <Reveal delay={0.2}>
-        <div className="mt-12 mb-12 overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
+        <div className="mt-12 mb-16 overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
           <div className="flex aspect-video items-center justify-center">
             <div className="text-center">
               <div className="mb-3 text-4xl">📸</div>
@@ -162,7 +162,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
           
           {/* Image Grid */}
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="mt-6 mb-6 grid gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100">
               <div className="flex aspect-[4/3] items-center justify-center">
                 <div className="text-center">
@@ -202,26 +202,49 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Challenges & Solutions */}
       <Reveal delay={0.6}>
-        <div>
-          {/* Challenge Cards */}
-          <div className="mb-20 grid gap-8 md:grid-cols-3">
-            {[
-              {
-                icon: "🧩",
-                title: "Canvas DOM Complexity",
-                text: "Canvas pages vary heavily by context, so I had to rely on stable DOM patterns to safely inject and maintain custom UI components.",
-              },
-              {
-                icon: "🎯",
-                title: "Assignment and Task Consistency",
-                text: "Keeping tasks and assignments in sync required normalizing Canvas data to avoid duplication and state mismatches.",
-              },
-              {
-                icon: "🎨",
-                title: "Theming Without Breaking UX",
-                text: "Themes were implemented using scoped style overrides to preserve readability and avoid disrupting Canvas’s core layout.",
-              },
-            ].map((c, i) => (
+        <div className="mb-12">
+          <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-900">
+            Challenges
+          </h2>
+
+          <div className="mt-4 mb-20 grid gap-8 md:grid-cols-3">
+            {(project.slug === "bettercampus"
+              ? [
+                  {
+                    icon: "🧩",
+                    title: "Canvas DOM Complexity",
+                    text: "Canvas pages vary heavily by context, so I had to rely on stable DOM patterns to safely inject and maintain custom UI components.",
+                  },
+
+                  {
+                    icon: "🎯",
+                    title: "Assignment and Task Consistency",
+                    text: "Keeping tasks and assignments in sync required normalizing Canvas data to avoid duplication and state mismatches.",
+                  },
+                  {
+                    icon: "🎨",
+                    title: "Theming Without Breaking UX",
+                    text: "Themes were implemented using scoped style overrides to preserve readability and avoid disrupting Canvas’s core layout.",
+                  },
+                ]
+              : [
+                  {
+                    icon: "🔧",
+                    title: "Architecture",
+                    text: "Designing a solid, maintainable architecture that supports future features and extensions.",
+                  },
+                  {
+                    icon: "⚙️",
+                    title: "Integration",
+                    text: "Working with external platforms and APIs while keeping the UI consistent and stable.",
+                  },
+                  {
+                    icon: "📈",
+                    title: "Performance",
+                    text: "Optimizing for speed and responsiveness across different devices and network conditions.",
+                  },
+                ]
+            ).map((c, i) => (
               <div
                 key={i}
                 className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100 transition-all duration-300 hover:shadow-lg hover:ring-gray-200"
@@ -229,9 +252,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-2xl transition-transform duration-300 group-hover:scale-110">
                   {c.icon}
                 </div>
-                <h3 className="mb-3 text-lg font-semibold text-gray-900">
-                  {c.title}
-                </h3>
+                <h3 className="mb-3 text-lg font-semibold text-gray-900">{c.title}</h3>
                 <p className="text-sm leading-relaxed text-gray-600">{c.text}</p>
               </div>
             ))}
