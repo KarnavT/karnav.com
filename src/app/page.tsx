@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <div className="w-full space-y-6 px-4 pb-14 pt-6 sm:px-6 lg:px-10">
-      <header className="flex flex-col gap-2 text-base font-medium text-transparent sm:flex-row sm:items-center sm:justify-between sm:text-lg">
+      <header className="flex flex-col gap-2 text-base font-medium text-transparent sm:-ml-1 sm:flex-row sm:items-center sm:justify-between sm:text-lg">
         <div className="flex flex-wrap items-center gap-2">
           <span className="bg-gradient-to-b from-gray-600 via-gray-500 to-gray-400 bg-clip-text">
             Hello there!
