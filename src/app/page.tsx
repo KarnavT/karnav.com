@@ -61,6 +61,7 @@ export default function Home() {
       subtitle: "Project",
       className: "",
       date: "2026",
+      mediaStyle: { backgroundImage: "url(/F1-Ferrari.png)" },
     },
   ];
 
