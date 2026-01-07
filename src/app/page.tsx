@@ -31,8 +31,8 @@ export default function Home() {
       subtitle: "Tasks & Assignments",
       date: "2025",
       slug: "bettercampus",
-      mediaClass: "bg-cover bg-center bg-no-repeat",
-      mediaStyle: { backgroundImage: "url(/projects/bettercampus/BC-hero.png)" },
+      // Use the logo (BC.png) and keep the base `bg-contain` sizing so it appears like a logo
+      mediaStyle: { backgroundImage: "url(/BC.png)" },
     },
     {
       ...baseTile,

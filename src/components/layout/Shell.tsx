@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef, useEffect, type ReactNode } from "react";
 import {
   motion,
   useReducedMotion,
@@ -28,6 +28,16 @@ export default function Shell({ children }: ShellProps) {
   const motionStyle = shouldReduceMotion
     ? undefined
     : { willChange: "transform, opacity", translateZ: 0 };
+
+  // Reset the scroll position of the main container when navigating between routes
+  // This fixes cases where the user scrolls on one page, navigates to another, and
+  // the new page preserves the previous scroll offset.
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
+    // Use instant scroll to avoid unwanted motion; keep layout animation intact
+    el.scrollTo({ top: 0, left: 0 });
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
