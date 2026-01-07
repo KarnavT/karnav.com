@@ -106,10 +106,10 @@ export default function Home() {
           <Link
             key={tile.title}
             href={`/projects/${tile.slug}`}
-            className="group flex h-full w-full flex-col"
+            className="group flex h-full w-full flex-col transition-transform duration-500 ease-out active:-translate-y-1 sm:active:translate-y-0"
           >
             <div className="flex h-full flex-col">
-              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-4 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-all duration-[900ms] ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)] sm:p-6">
+              <div className="transform-gpu will-change-transform rounded-sm bg-gray-50 p-4 shadow-[0_3px_16px_-10px_rgba(15,23,42,0.22),0_0_12px_-8px_rgba(15,23,42,0.22)] transition-all duration-[900ms] ease-[cubic-bezier(0.2,0.9,0.25,1)] group-hover:-translate-y-1.5 group-hover:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)] group-active:-translate-y-1 group-active:shadow-[0_5px_22px_-12px_rgba(15,23,42,0.34),0_0_14px_-9px_rgba(15,23,42,0.34)] sm:group-active:translate-y-0 sm:p-6">
                 <div className="w-full overflow-hidden rounded-[3px] bg-gray-50">
                   <div
                     className={[
