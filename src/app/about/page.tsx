@@ -58,8 +58,9 @@ export default function AboutPage() {
         style={{
           opacity: Math.max(0, 0.4 - fogProgress * 0.5),
           background: `
-            linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(250,250,252,0.15) 30%, transparent 60%),
-            radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,255,255,0.25) 0%, transparent 70%)
+            linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(250,250,252,0.15) 25%, rgba(252,252,254,0.08) 50%, transparent 75%),
+            radial-gradient(ellipse 120vw 80vh at 50% 0%, rgba(255,255,255,0.25) 0%, rgba(250,250,255,0.12) 40%, transparent 70%),
+            radial-gradient(ellipse 100vw 60vh at 50% 20%, rgba(248,248,252,0.15) 0%, transparent 60%)
           `,
         }}
       />
@@ -70,10 +71,12 @@ export default function AboutPage() {
         style={{
           opacity: Math.max(0, 0.6 - fogProgress * 0.7),
           background: `
-            radial-gradient(ellipse 50% 40% at 0% 0%, rgba(245,245,250,0.8) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 35% at 100% 0%, rgba(250,250,255,0.7) 0%, transparent 65%),
-            radial-gradient(ellipse 45% 50% at 0% 100%, rgba(248,248,252,0.6) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 45% at 100% 100%, rgba(245,248,255,0.5) 0%, transparent 55%)
+            radial-gradient(ellipse 60vw 50vh at 0% 0%, rgba(245,245,250,0.8) 0%, rgba(248,248,252,0.4) 35%, transparent 70%),
+            radial-gradient(ellipse 55vw 45vh at 100% 0%, rgba(250,250,255,0.7) 0%, rgba(252,252,255,0.35) 40%, transparent 65%),
+            radial-gradient(ellipse 50vw 55vh at 0% 100%, rgba(248,248,252,0.6) 0%, rgba(250,250,254,0.3) 45%, transparent 70%),
+            radial-gradient(ellipse 55vw 50vh at 100% 100%, rgba(245,248,255,0.5) 0%, rgba(248,250,255,0.25) 40%, transparent 65%),
+            radial-gradient(ellipse 80vw 40vh at 30% 50%, rgba(252,252,255,0.2) 0%, transparent 60%),
+            radial-gradient(ellipse 75vw 45vh at 70% 50%, rgba(250,250,254,0.18) 0%, transparent 55%)
           `,
         }}
       />
