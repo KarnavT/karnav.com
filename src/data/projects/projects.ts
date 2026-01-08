@@ -28,10 +28,10 @@ export const bettercampus: Project = {
     },
   ],
   metrics: [
-    { value: "100+", label: "Flights" },
-    { value: "98%", label: "Uptime" },
-    { value: "50GB", label: "Data uploaded" },
-    { value: "15+", label: "Partners" },
+    { value: "2M+", label: "Users" },
+    { value: "99%", label: "Uptime" },
+    { value: "300+", label: "User Themes" },
+    { value: "4.9★", label: "Avg rating" },
   ],
   media: {
     hero: "/projects/bettercampus/BC-hero.png",
@@ -126,34 +126,34 @@ export const ivue: Project = {
 export const auxai: Project = {
   title: "AuxAI",
   slug: "auxai",
-  description: "An AI-powered assistant that enhances productivity through intelligent automation.",
+  description: "A collaborative music platform that blends friends' music tastes into cohesive Spotify playlists so people don't have to worry about curation.",
   category: "Projects",
   overview:
-    "AuxAI is an intelligent assistant that learns user workflows and automates repetitive tasks. The system uses natural language processing to understand commands and machine learning to predict user needs.",
+    "AuxAI helps groups turn mixed music tastes into a single, party-ready playlist. People log in with Spotify, join a room, and AuxAI aggregates everyone’s top tracks, artists, and genres to find overlap and balance. The result is a playlist that builds energy, smooths transitions, and lands directly in your Spotify library—no manual curation required.",
   approach:
-    "The project combines transformer-based language models with custom fine-tuning for domain-specific tasks. A modular plugin architecture allows integration with various productivity tools and services.",
+    "We use Spotify OAuth to pull user profiles and listening history, MongoDB to store profiles and rooms, and an Express backend to aggregate and score tracks. OpenAI assists with ordering and mood transitions while the backend calls Spotify’s API to create and populate playlists. The frontend keeps things social and live so everyone can tweak the mix before it’s finalized.",
   challenges: [
     {
-      icon: "🔧",
-      title: "Architecture",
-      text: "Designing a solid, maintainable architecture that supports future features and extensions.",
+      icon: "🎧",
+      title: "Curation Balance",
+      text: "Finding the sweet spot between wildly different tastes so the playlist feels cohesive and fun for everyone.",
     },
     {
-      icon: "⚙️",
-      title: "Integration",
-      text: "Working with external platforms and APIs while keeping the UI consistent and stable.",
+      icon: "🔐",
+      title: "Auth & Tokens",
+      text: "Managing Spotify OAuth and token refresh reliably across multiple users and devices.",
     },
     {
-      icon: "📈",
-      title: "Performance",
-      text: "Optimizing for speed and responsiveness across different devices and network conditions.",
-    },
+      icon: "🤝",
+      title: "Group Aggregation",
+      text: "Merging profiles, resolving duplicates, and weighting preferences in a way that respects all contributors.",
+    }
   ],
   metrics: [
-    { value: "100+", label: "Flights" },
-    { value: "98%", label: "Uptime" },
-    { value: "50GB", label: "Data uploaded" },
-    { value: "15+", label: "Partners" },
+    { value: "50+", label: "Rooms generated" },
+    { value: "#1", label: "GT Web Dev Project Fall \'25" },
+    { value: "30+", label: "Playlists generated" },
+    { value: "1000+", label: "Tracks analyzed" },
   ],
   media: {
     hero: "/projects/auxai/AuxAI-hero.png",
