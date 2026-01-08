@@ -23,7 +23,7 @@ export default function FeatureImages({
 
   return (
     <Reveal delay={delay}>
-      <div className={`mt-6 mb-6 grid gap-6 md:grid-cols-${cols}`}>
+      <div className={`mt-6 mb-6 grid gap-6 ${cols === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
         {isPlaceholder ? (
           <>
             <div className="overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -56,7 +56,8 @@ export default function FeatureImages({
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className={`object-${objectFit} object-top`}
+                  className="w-full h-full"
+                  style={{ objectFit: objectFit, objectPosition: 'top' }}
                   sizes="(min-width: 768px) 600px, 100vw"
                 />
               </div>

@@ -27,10 +27,6 @@ export default function AboutPage() {
   
   const fogProgress = Math.min(scrollY / 400, 1);
 
-  useEffect(() => {
-    setIsReady(true);
-  }, []);
-
   const restMotion = useMemo<MotionProps>(() => {
     if (shouldReduceMotion) {
       return {

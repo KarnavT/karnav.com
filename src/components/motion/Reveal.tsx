@@ -1,7 +1,7 @@
 "use client";
 
 import { Children, type ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, easeOut } from "framer-motion";
 
 type RevealProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type RevealProps = {
 
 const baseTransition = {
   duration: 0.35,
-  ease: "easeOut",
+  ease: easeOut,
 };
 
 const itemVariants = {

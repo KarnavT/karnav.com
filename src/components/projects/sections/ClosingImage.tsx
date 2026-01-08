@@ -39,7 +39,8 @@ export default function ClosingImage({
                 src={src}
                 alt={alt}
                 fill
-                className={`object-${objectFit}`}
+                className="w-full h-full"
+                style={{ objectFit: objectFit }}
                 sizes="(min-width: 1024px) 1200px, 100vw"
               />
             </div>
