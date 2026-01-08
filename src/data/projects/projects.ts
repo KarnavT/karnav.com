@@ -164,20 +164,20 @@ export const auxai: Project = {
   },
   imageConfig: {
     hero: {
-      aspectRatio: "aspect-video",
+      aspectRatio: "aspect-[15/9]",
       objectFit: "cover",
     },
     features: {
-      aspectRatio: "aspect-[4/3]",
+      aspectRatio: "aspect-[8/7]",
       objectFit: "cover",
       cols: 2,
     },
     wide: {
-      aspectRatio: "aspect-[16/9]",
+      aspectRatio: "aspect-[32/11]",
       objectFit: "cover",
     },
     final: {
-      aspectRatio: "aspect-video",
+      aspectRatio: "aspect-[1/1]",
       objectFit: "cover",
     },
   },
