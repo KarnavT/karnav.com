@@ -10,7 +10,7 @@ const projects = [
   {
     title: "BetterCampus",
     slug: "bettercampus",
-    description: "BetterCampus is a Canvas LMS browser extension that improves the student experience by making assignments, tasks, and themes easier to manage and customize.",
+    description: "A Canvas LMS browser extension that improves the student experience by making assignments, grades, and themes easier to manage and customize.",
     category: "Previous Work",
     overview:
       "BetterCampus is a Chrome extension built to reduce friction in everyday Canvas usage for students. It enhances the platform by introducing a more flexible task and assignment system alongside customizable themes. The goal was to make Canvas feel less rigid and more aligned with how students actually plan and organize their work. The extension runs seamlessly on top of Canvas without disrupting existing workflows.",
@@ -23,12 +23,12 @@ const projects = [
   {
     title: "iVue",
     slug: "ivue",
-    description: "A remote drone interface enabling real-time control and monitoring of drone operations.",
+    description: "A drone operations platform combining live video, real-time telemetry, and a 3D globe for mission planning and control.",
     category: "Previous Work",
     overview:
-      "iVue provides operators with a comprehensive interface for remote drone control, featuring live video streaming, telemetry visualization, and mission planning capabilities. The system enables safe and efficient drone operations from anywhere.",
+      "iVue provides operators with a unified interface to control drones, stream live video, and visualize position and telemetry on a global 3D map. It supports mission planning, payload integration, and both education and commercial inspection workflows. Worlds iVue utilizes a Cesium-based globe for geospatial context while iVue RoboControl supplies the telemetry, command, and UI elements for autonomous drone operation.",
     approach:
-      "The interface leverages WebRTC for low-latency video streaming and WebSocket connections for real-time telemetry data. Custom visualization components display flight metrics, battery status, and environmental conditions in an intuitive dashboard.",
+      "The platform uses low-latency streaming WebRTC for live camera feeds and WebSocket channels for telemetry and command/control. We used a CesiumJS-powered 3D globe to provide accurate geospatial rendering and mission overlays. The architecture is modular to support Develop Air hardware, diverse payloads, and mission automation, with emphasis on resilient connections and failsafe behavior.",
     challenges:
       "Managing network latency for responsive controls, implementing reliable failsafe mechanisms for connection drops, and optimizing video compression for varying bandwidth conditions were primary technical challenges.",
   },
@@ -341,6 +341,24 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     text: "Themes were implemented using scoped style overrides to preserve readability and avoid disrupting Canvas’s core layout.",
                   },
                 ]
+              : project.slug === "ivue"
+              ? [
+                  {
+                    icon: "🧭",
+                    title: "Geospatial Integration",
+                    text: "Integrating a Cesium-based 3D globe with live telemetry to provide accurate, synchronized geospatial context.",
+                  },
+                  {
+                    icon: "🕹️",
+                    title: "Operator Workflows",
+                    text: "Designing responsive, reusable UI controls to streamline operator tasks and maintain cross-system compatibility.",
+                  },
+                  {
+                    icon: "⚡",
+                    title: "Latency & Reliability",
+                    text: "Reducing streaming and command latency while implementing resilient fail-safes for unreliable network conditions.",
+                  },
+                ]
               : [
                   {
                     icon: "🔧",
@@ -382,10 +400,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </h2>
           <div className="grid gap-8 md:grid-cols-4">
             {[
-              { value: "2M+", label: "Users" },
-              { value: "99.9%", label: "Uptime" },
-              { value: "50ms", label: "Response Time" },
-              { value: "4.9★", label: "Rating" },
+              { value: "100+", label: "Flights" },
+              { value: "98%", label: "Uptime" },
+              { value: "50GB", label: "Data uploaded" },
+              { value: "15+", label: "Partners" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="mb-2 text-5xl font-semibold tracking-tight text-gray-900">
