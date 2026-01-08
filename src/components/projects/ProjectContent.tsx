@@ -16,54 +16,62 @@ interface ProjectContentProps {
 }
 
 export default function ProjectContent({ project }: ProjectContentProps) {
+  const isComingSoon = project.slug === "f1-predictor";
+
   return (
     <div className="mx-auto w-full max-w-6xl">
       <CategoryHeader category={project.category} delay={0} />
       <HeroTitle
         title={project.title}
-        description={project.description}
+        description={isComingSoon ? "Coming Soon..." : project.description}
         delay={0.1}
       />
       <Divider delay={0.15} />
-      <HeroImage
-        src={project.media.hero}
-        alt={`${project.title} hero image`}
-        config={project.imageConfig?.hero}
-        delay={0.2}
-      />
-      <OverviewSection content={project.overview} delay={0.3} />
 
-      <div className="mb-12">
-        <ApproachSection
-          title="Technical Approach"
-          content={project.approach}
-          delay={0.4}
-        />
-        <FeatureImages
-          images={[
-            { src: project.media.feat1, alt: `${project.title} feature 1` },
-            { src: project.media.feat2, alt: `${project.title} feature 2` },
-          ]}
-          config={project.imageConfig?.features}
-          delay={0.45}
-        />
-      </div>
+      {/* If this is the F1 project, hide everything below the first horizontal line */}
+      {!isComingSoon && (
+        <>
+          <HeroImage
+            src={project.media.hero}
+            alt={`${project.title} hero image`}
+            config={project.imageConfig?.hero}
+            delay={0.2}
+          />
+          <OverviewSection content={project.overview} delay={0.3} />
 
-      <WideImage
-        src={project.media.wide}
-        alt={`${project.title} wide showcase`}
-        config={project.imageConfig?.wide}
-        delay={0.5}
-      />
+          <div className="mb-12">
+            <ApproachSection
+              title="Technical Approach"
+              content={project.approach}
+              delay={0.4}
+            />
+            <FeatureImages
+              images={[
+                { src: project.media.feat1, alt: `${project.title} feature 1` },
+                { src: project.media.feat2, alt: `${project.title} feature 2` },
+              ]}
+              config={project.imageConfig?.features}
+              delay={0.45}
+            />
+          </div>
 
-      <ChallengesSection challenges={project.challenges} delay={0.6} />
-      <ImpactSection metrics={project.metrics} delay={0.7} />
-      <ClosingImage
-        src={project.media.final}
-        alt={`${project.title} closing image`}
-        config={project.imageConfig?.final}
-        delay={0.8}
-      />
+          <WideImage
+            src={project.media.wide}
+            alt={`${project.title} wide showcase`}
+            config={project.imageConfig?.wide}
+            delay={0.5}
+          />
+
+          <ChallengesSection challenges={project.challenges} delay={0.6} />
+          <ImpactSection metrics={project.metrics} delay={0.7} />
+          <ClosingImage
+            src={project.media.final}
+            alt={`${project.title} closing image`}
+            config={project.imageConfig?.final}
+            delay={0.8}
+          />
+        </>
+      )}
     </div>
   );
 }
