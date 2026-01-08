@@ -50,8 +50,8 @@ Then open `http://localhost:3000`.
 
 If you only have 2 minutes, I’d recommend:
 
-1) Skimming the projects section to see how each project is framed and quantified.
-2) Checking the animation flow on the home page to get a feel for the tone.
+1) Skimming the projects section to see what I've been up to.
+2) Checking the about me page to learn more about my personality and interests.
 
 ---
 
