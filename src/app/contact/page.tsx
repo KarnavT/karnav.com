@@ -95,7 +95,7 @@ export default function ContactPage() {
 
       setStatus({
         type: "success",
-        message: "Message sent successfully! I'll get back to you soon.",
+        message: "Thanks for reaching out! I've received your message and will get back to you soon.",
       });
 
       setFormData({
