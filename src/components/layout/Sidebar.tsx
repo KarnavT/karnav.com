@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Skills", href: "/skills" },
-  { label: "Resume", href: "/resume" },
+  { label: "Contact Me", href: "/contact" },
 ];
 
 const sidebarSections = [
@@ -32,7 +32,6 @@ const sidebarSections = [
       { label: "Email", href: "mailto:karnavnt@gmail.com" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/karnav-trivedi/" },
       { label: "GitHub", href: "https://github.com/KarnavT" },
-      { label: "Resume", href: "/resume" },
     ],
   },
 ];
