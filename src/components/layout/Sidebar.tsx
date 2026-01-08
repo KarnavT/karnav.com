@@ -39,6 +39,20 @@ const sidebarSections = [
 export default function Sidebar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const handleCopyEmail = (e: any, href: string, label: string) => {
+    if (!href.startsWith("mailto:")) return;
+    // Prevent default link navigation (don't open mail client) — just copy email
+    e.preventDefault();
+    e.stopPropagation?.();
+    const email = href.replace("mailto:", "");
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      navigator.clipboard.writeText(email).catch((err) => console.error("Copy failed", err));
+    }
+    setCopied(label);
+    setTimeout(() => setCopied(null), 1900);
+  };  
 
   useEffect(() => {
     setIsOpen(false);
@@ -115,8 +129,19 @@ export default function Sidebar() {
                               ? "_blank"
                               : undefined
                           }
+                          onClick={(e) => item.href.startsWith("mailto:") ? handleCopyEmail(e, item.href, item.label) : undefined}
                         >
-                          {item.label}
+                          <span className="inline-flex items-center gap-2">
+                            <span className="relative inline-block">{item.label}</span>
+                            {copied === item.label && (
+                              <span role="status" aria-live="polite" className="inline-flex items-center rounded-full bg-green-100 text-green-800 px-2 py-0.5 text-xs font-medium animate-fade-in-out">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414-1.414L7 12.172 4.707 9.879a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l9-9z" clipRule="evenodd" />
+                                </svg>
+                                <span className="ml-1">Copied</span>
+                              </span>
+                            )}
+                          </span>
                         </Link>
                       </li>
                     ))}
@@ -174,10 +199,21 @@ export default function Sidebar() {
                         ? "_blank"
                         : undefined
                     }
+                    onClick={(e) => item.href.startsWith("mailto:") ? handleCopyEmail(e, item.href, item.label) : undefined}
                   >
-                    <span className="relative">
-                      {item.label}
-                      <span className="absolute left-0 top-full h-px w-full origin-left scale-x-0 bg-gray-900 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                    <span className="relative inline-flex items-center gap-2">
+                      <span className="relative inline-block">
+                        {item.label}
+                        <span className="absolute left-0 top-full h-px w-full origin-left scale-x-0 bg-gray-900 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                      </span>
+                      {copied === item.label && (
+                        <span role="status" aria-live="polite" className="inline-flex items-center rounded-full bg-green-100 text-green-800 px-2 py-0.5 text-xs font-medium animate-fade-in-out">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414-1.414L7 12.172 4.707 9.879a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l9-9z" clipRule="evenodd" />
+                          </svg>
+                          <span className="ml-1">Copied</span>
+                        </span>
+                      )} 
                     </span>
                   </Link>
                 </li>

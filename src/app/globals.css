@@ -60,3 +60,34 @@ body {
 .fog-layer-3 {
   animation: fog-drift-3 18s ease-in-out infinite;
 }
+
+@keyframes fade-in-out {
+  /* Fade in from slightly below (bottom-up), stay, then fade out moving down */
+  0% { opacity: 0; transform: translateY(4px); }
+  /* fade in end at ~200ms (200/1900 ≈ 10.53%) */
+  10.53% { opacity: 1; transform: translateY(0); }
+  /* stay visible until ~1700ms (1700/1900 ≈ 89.47%) */
+  89.47% { opacity: 1; transform: translateY(0); }
+  /* fade out downwards (end at 1900ms) */
+  100% { opacity: 0; transform: translateY(4px); }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 1900ms cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Label slide + fade when badge appears */
+.btn-label {
+  display: inline-block; /* needed so transform doesn't affect layout oddly */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  /* use a slightly longer duration & smoother easing for a less jagged feel */
+  transition: transform 280ms cubic-bezier(.2,.9,.3,1), opacity 240ms ease;
+}
+
+.btn-label.shift-left {
+  /* use translate3d for GPU-accelerated motion and a smaller offset for subtlety */
+  transform: translate3d(-8px, 0, 0);
+  opacity: 0.85;
+}     

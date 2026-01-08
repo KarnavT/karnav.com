@@ -28,6 +28,19 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation?.();
+    const email = "karnavnt@gmail.com";
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      navigator.clipboard.writeText(email).catch(() => {});
+    }
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 1900);
+  }; 
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -237,9 +250,20 @@ export default function ContactPage() {
         <div className="grid gap-3 sm:grid-cols-2">
           <a
             href="mailto:karnavnt@gmail.com"
+            onClick={handleCopyEmail}
             className="rounded-lg border border-gray-200 px-4 py-3 text-center text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:border-gray-300"
           >
-            Email
+            <span className="inline-flex items-center justify-center gap-2">
+              <span className={`btn-label ${copiedEmail ? "shift-left" : ""}`}>Email</span>
+              {copiedEmail && (
+                <span role="status" aria-live="polite" className="inline-flex items-center rounded-full bg-green-100 text-green-800 px-2 py-0.5 text-xs font-medium animate-fade-in-out">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414-1.414L7 12.172 4.707 9.879a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l9-9z" clipRule="evenodd" />
+                  </svg>
+                  <span className="ml-1">Copied</span>
+                </span>
+              )}
+            </span>
           </a>
           <a
             href="https://www.linkedin.com/in/karnav-trivedi/"
