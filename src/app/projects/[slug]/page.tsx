@@ -80,6 +80,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = use(params);
   const project = projects.find((item) => item.slug === slug);
   const isBetterCampus = project?.slug === "bettercampus";
+  const isIvue = project?.slug === "ivue";
   const betterCampusMedia = {
     hero: "/projects/bettercampus/BC-hero.png",
     feat1: "/projects/bettercampus/BC-feat1.png",
@@ -87,6 +88,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     wide: "/projects/bettercampus/BC-wide.png",
     final: "/projects/bettercampus/BC-final.jpg",
   };
+  const ivueMedia = {
+    hero: "/projects/ivue/iVue-wide.png",
+    feat1: "/projects/ivue/iVue-feat1.png",
+    feat2: "/projects/ivue/iVue-feat2.jpg",
+    wide: "/projects/ivue/iVue-hero.png",
+    final: "/projects/ivue/iVue-final.jpg",
+  }; 
 
   if (!project) {
     notFound();
@@ -124,7 +132,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Hero Image Placeholder */}
       <Reveal delay={0.2}>
-        <div className="mt-12 mb-16 overflow-hidden rounded-xl bg-gray-100">
+        <div className={`mt-12 mb-16 overflow-hidden rounded-xl ${isIvue ? 'bg-black' : 'bg-gray-100'}`}>
           {isBetterCampus ? (
             <div className="relative aspect-video">
               <Image
@@ -136,7 +144,18 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 priority
               />
             </div>
-          ) : (
+          ) : isIvue ? (
+            <div className="relative aspect-video lg:aspect-[16/9] overflow-hidden">
+              <Image
+                src={ivueMedia.hero}
+                alt="iVue comprehensive dashboard (wide view)"
+                fill
+                className="object-contain"
+                sizes="(min-width: 1024px) 1200px, 100vw"
+                priority
+              />
+            </div>
+          ) : ( 
             <div className="flex aspect-video items-center justify-center">
               <div className="text-center">
                 <div className="mb-3 text-4xl">📸</div>
@@ -207,6 +226,31 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               </>
+            ) : isIvue ? (
+              <>
+                <div className="relative overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+                  <div className="relative aspect-[4/3] ">
+                    <Image
+                      src={ivueMedia.feat1}
+                      alt="iVue telemetry and flight data visualization"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(min-width: 768px) 600px, 100vw"
+                    />
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={ivueMedia.feat2}
+                      alt="iVue mission planning interface"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(min-width: 768px) 600px, 100vw"
+                    />
+                  </div>
+                </div>
+              </>
             ) : (
               <>
                 <div className="overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -247,7 +291,17 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   sizes="(min-width: 1024px) 1400px, 100vw"
                 />
               </div>
-            ) : (
+            ) : isIvue ? (
+              <div className="relative aspect-[21/9] overflow-hidden">
+                <Image
+                  src={ivueMedia.wide}
+                  alt="iVue hero interface showcase"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 1400px, 100vw"
+                />
+              </div>
+            ) : ( 
               <div className="flex aspect-[21/9] items-center justify-center">
                 <div className="text-center">
                   <div className="mb-3 text-5xl">🎨</div>
@@ -353,6 +407,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 <Image
                   src={betterCampusMedia.final}
                   alt="BetterCampus final UI showcase"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 1200px, 100vw"
+                />
+              </div>
+            ) : isIvue ? (
+              <div className="relative aspect-video">
+                <Image
+                  src={ivueMedia.final}
+                  alt="iVue complete interface showcase"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 1200px, 100vw"
