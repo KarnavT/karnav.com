@@ -156,11 +156,30 @@ export const auxai: Project = {
     { value: "15+", label: "Partners" },
   ],
   media: {
-    hero: "/projects/auxai/hero.png",
-    feat1: "/projects/auxai/feat1.png",
-    feat2: "/projects/auxai/feat2.png",
-    wide: "/projects/auxai/wide.png",
-    final: "/projects/auxai/final.png",
+    hero: "/projects/auxai/AuxAI-hero.png",
+    feat1: "/projects/auxai/AuxAI-feat1.png",
+    feat2: "/projects/auxai/AuxAI-feat2.jpeg",
+    wide: "/projects/auxai/AuxAI-wide.png",
+    final: "/projects/auxai/AuxAI-final.jpeg",
+  },
+  imageConfig: {
+    hero: {
+      aspectRatio: "aspect-video",
+      objectFit: "cover",
+    },
+    features: {
+      aspectRatio: "aspect-[4/3]",
+      objectFit: "cover",
+      cols: 2,
+    },
+    wide: {
+      aspectRatio: "aspect-[16/9]",
+      objectFit: "cover",
+    },
+    final: {
+      aspectRatio: "aspect-video",
+      objectFit: "cover",
+    },
   },
 };
 
