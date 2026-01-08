@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Welcome to my personal portfolio site. I built it to be a place where anyone can learn my story quickly without sifting through fluff. Here, I've showcased my past experiences and projects with context and visuals,
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- Framer Motion for animation
+- EmailJS for contact form delivery
+
+## Architecture
+
+The site is organized around three layers: routes, reusable UI, and structured content. This keeps the UI clean while making it easy to add new projects without touching presentation logic.
+
+- Routes live in `src/app` (App Router). Each section has its own page folder.
+- UI building blocks live in `src/components` (layout, motion, and project-specific components).
+- Portfolio content is centralized in `src/data/projects`, which feeds the projects pages.
+
+This setup is intentionally “content-first”: add a project object and the UI scales with it.
+
+## Project structure
+
+```
+src/
+  app/             # Route segments (about, projects, contact, resume, skills)
+  components/      # Layout + UI building blocks
+  data/            # Structured project content
+public/            # Images + static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open `http://localhost:3000`.
 
-## Learn More
+## Useful scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` — local dev server (opens the site automatically)
+- `npm run build` — production build
+- `npm run start` — run the production build
+- `npm run lint` — lint the codebase
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Additional Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you only have 2 minutes, I’d recommend:
 
-## Deploy on Vercel
+1) Skimming the projects section to see how each project is framed and quantified.
+2) Checking the animation flow on the home page to get a feel for the tone.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you’re curious about specific implementation details, feel free to reach out.
