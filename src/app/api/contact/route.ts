@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const runtime = "nodejs";
+
 type ContactPayload = {
   name?: string;
   email?: string;
@@ -58,7 +60,7 @@ export async function POST(request: Request) {
   try {
     await transporter.sendMail({
       to,
-      from: `Portfolio Contact <${emailUser}>`,
+      from: emailUser,
       replyTo: email,
       subject,
       text: textBody,
@@ -67,6 +69,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
+    console.error("Email send error:", error);
     return NextResponse.json(
       { ok: false, error: "Failed to send message." },
       { status: 500 }
