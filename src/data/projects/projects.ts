@@ -167,41 +167,60 @@ export const auxai: Project = {
 export const notivet: Project = {
   title: "NotiVet",
   slug: "notivet",
-  description: "A notification and management system for veterinary practices and pet owners.",
+  description: "A web app designed to connect veterinary healthcare professionals to pharmaceutical companies via drug updates and targeted notifications.",
   category: "Projects",
   overview:
-    "NotiVet connects veterinary clinics with pet owners through a unified communication platform. The system handles appointment scheduling, medication reminders, and health record management.",
+    "NotiVet helps veterinary clinics stay up to date with emerging treatments by delivering curated, specialty-specific drug updates and searchable medication data. Veterinarians can subscribe to the topics that matter to their practice, save important drugs for quick reference, and message manufacturers directly. Pharmaceutical companies can create targeted notification campaigns to spread the word and track engagement with an analytics dashboard. Our AI assistant, Scooby, provides on-demand, source-backed context to support clinical decisions.",
   approach:
-    "A mobile-first design ensures accessibility for pet owners on the go, while the clinic dashboard provides comprehensive practice management tools. The backend uses event-driven architecture for reliable notification delivery.",
+    "We prioritized a clean, mobile-first experience with clear workflows for subscribing, searching, and managing notifications. The frontend is built with Next.js and Tailwind for speed and accessibility, while the backend relies on Prisma + PostgreSQL for reliable, auditable data storage. Notifications are delivered through an event-driven pipeline and instrumented for engagement analytics so manufacturers can measure reach and effectiveness. Scooby integrates grounded LLM responses with our vetted dataset to provide contextual, source-linked answers.",
   challenges: [
     {
-      icon: "🔧",
-      title: "Architecture",
-      text: "Designing a solid, maintainable architecture that supports future features and extensions.",
+      icon: "🔎",
+      title: "Reliable Drug Data",
+      text: "Finding an authoritative, machine-readable dataset for FDA-approved animal drugs was difficult. We had to validate sources and import a vetted CSV to ensure clinical accuracy.",
     },
     {
-      icon: "⚙️",
-      title: "Integration",
-      text: "Working with external platforms and APIs while keeping the UI consistent and stable.",
+      icon: "🤖",
+      title: "Trustworthy AI Assistant",
+      text: "Making Scooby helpful and safe required grounding answers in our database, fine-tuning for veterinary language, and linking every response to trusted sources and recommended drugs.",
     },
     {
-      icon: "📈",
-      title: "Performance",
-      text: "Optimizing for speed and responsiveness across different devices and network conditions.",
+      icon: "🔐",
+      title: "Robust Data & Auth",
+      text: "Designing a secure, flexible backend involved iterating on database choices and implementing strong authentication and data models; we settled on PostgreSQL for its reliability and tooling.",
     },
   ],
   metrics: [
-    { value: "100+", label: "Flights" },
-    { value: "98%", label: "Uptime" },
-    { value: "50GB", label: "Data uploaded" },
-    { value: "15+", label: "Partners" },
+    { value: "900+", label: "Vetted drugs" },
+    { value: "1.2k+", label: "ScoobyAI answers" },
+    { value: "48%", label: "Reduced search time" },
+    { value: "9", label: "Species covered" },
   ],
   media: {
-    hero: "/projects/notivet/hero.png",
-    feat1: "/projects/notivet/feat1.png",
-    feat2: "/projects/notivet/feat2.png",
-    wide: "/projects/notivet/wide.png",
-    final: "/projects/notivet/final.png",
+    hero: "/projects/notivet/NotiVet-feat2.png",
+    feat1: "/projects/notivet/NotiVet-feat1.png",
+    feat2: "/projects/notivet/NotiVet-hero.png",
+    wide: "/projects/notivet/NotiVet-wide.png",
+    final: "/projects/notivet/NotiVet-final.png",
+  },
+  imageConfig: {
+    hero: {
+      aspectRatio: "aspect-[6/5]",
+      objectFit: "cover",
+    },
+    features: {
+      aspectRatio: "aspect-[4/3]",
+      objectFit: "cover",
+      cols: 2,
+    },
+    wide: {
+      aspectRatio: "aspect-[13/9]",
+      objectFit: "cover",
+    },
+    final: {
+      aspectRatio: "aspect-[12/9]",
+      objectFit: "cover",
+    },
   },
 };
 
