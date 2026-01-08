@@ -8,7 +8,7 @@ Welcome to my personal portfolio site. I built it to be a place where anyone can
 - React 19 + TypeScript
 - Tailwind CSS v4
 - Framer Motion for animation
-- EmailJS for contact form delivery
+- Nodemailer + API route for contact form delivery
 
 ## Architecture
 
