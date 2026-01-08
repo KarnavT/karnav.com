@@ -95,10 +95,10 @@ export const ivue: Project = {
     { value: "15+", label: "Partners" },
   ],
   media: {
-    hero: "/projects/ivue/iVue-wide.png",
+    hero: "/projects/ivue/iVue-hero.png",
     feat1: "/projects/ivue/iVue-feat1.png",
     feat2: "/projects/ivue/iVue-feat2.jpg",
-    wide: "/projects/ivue/iVue-hero.png",
+    wide: "/projects/ivue/iVue-wide.png",
     final: "/projects/ivue/iVue-final.jpg",
   },
   imageConfig: {
