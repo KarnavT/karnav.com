@@ -113,7 +113,7 @@ export const ivue: Project = {
       cols: 2,
     },
     wide: {
-      aspectRatio: "aspect-[21/9]",
+      aspectRatio: "aspect-[16/9]",
       objectFit: "cover",
     },
     final: {
