@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Skills", href: "/skills" },
-  { label: "Contact Me", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const sidebarSections = [
