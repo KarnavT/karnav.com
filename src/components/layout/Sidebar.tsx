@@ -66,7 +66,7 @@ export default function Sidebar() {
             href="/"
             className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-xl font-bold text-gray-900"
           >
-            કર્ણવ
+            KΛRNΛV
           </Link>
           <button
             type="button"
@@ -155,7 +155,7 @@ export default function Sidebar() {
       <aside className="fixed inset-y-0 left-0 hidden w-60 border-r border-gray-200 bg-white px-8 py-10 lg:block">
         <div className="space-y-10">
         <div className="space-y-6">
-          <Link href="/" className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-2xl font-bold text-gray-900">કર્ણવ
+          <Link href="/" className="inline-flex items-center rounded bg-gray-100 px-3 py-2 text-2xl font-bold text-gray-900">karnav.
           </Link>
           <nav aria-label="Primary">
             <ul className="space-y-2 text-lg font-medium text-gray-600">
